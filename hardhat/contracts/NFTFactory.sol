@@ -10,6 +10,20 @@ contract NFTFactory {
     event createdNFT(address adresse, string name, string symbol);
     event Debug(string message);
 
+    struct Listed {
+        uint256 price;
+        address seller;
+        address collection;
+        uint256 timestamp;
+        bool locked;
+    }
+
+    mapping(uint256 => Listed) public market;
+
+    uint256 public idMarket;
+
+    error ALREADY_LISTED(address collection);
+
     constructor() {}
 
     function generateNFT(string memory name, string memory symbol) public {
@@ -36,20 +50,6 @@ contract NFTFactory {
     function getIdMarket() public view returns(uint256) {
         return idMarket;
     }
-
-    struct Listed {
-        uint256 price;
-        address seller;
-        address collection;
-        uint256 timestamp;
-        bool locked;
-    }
-
-    mapping(uint256 => Listed) public market;
-
-    uint256 public idMarket;
-
-    error ALREADY_LISTED(address collection);
 
     function getAlreadyListed (address collection) public view returns (bool){
         for (uint i = 0; i < idMarket; i ++) {
