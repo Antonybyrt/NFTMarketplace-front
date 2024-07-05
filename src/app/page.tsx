@@ -1,40 +1,40 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useAccount } from 'wagmi';
-import { ethers } from 'ethers';
-import NFTFactoryABI from '../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json'; 
+import { type BaseError, useAccount, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
+import {abi} from '../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json'; 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { getEthersSigner, clientToSigner } from './providers';
-import type { Account, Chain, Client, Transport } from 'viem'
+import { useEthersSigner } from './providers';
 
 const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 
 function Page() {
   const { address, isConnected } = useAccount();
-  const [loading, setLoading] = useState(false);
-  const provider = getEthersSigner(config)
+  const signer = useEthersSigner()
+  const { 
+    data: hash, 
+    isPending, 
+    error,
+    writeContract 
+  } = useWriteContract()
 
-  const handleGenerateNFT = async () => {
-    if (!signer || !isConnected) {
-      alert('Please connect your wallet');
-      return;
-    }
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      hash,
+  })
 
-    setLoading(true);
-
-    try {
-      const nftFactoryContract = new ethers.Contract(NFT_FACTORY_ADDRESS, NFTFactoryABI.abi, address);
-      const tx = await nftFactoryContract.generateNFT('MyNFT', 'MNFT');
-      await tx.wait();
-      alert('NFT generated successfully!');
-    } catch (error) {
-      console.error(error);
-      alert('Failed to generate NFT');
-    } finally {
-      setLoading(false);
-    }
-  };
+  async function mintNFT(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement)
+    const name = formData.get('name') as string
+    const symbol = formData.get('symbol') as string
+    writeContract({
+      address: NFT_FACTORY_ADDRESS,
+      abi,
+      functionName: 'generateNFT',
+      args: [String(name), String(symbol)],
+    })
+  }
 
   return (
     <div>
@@ -45,13 +45,26 @@ function Page() {
           padding: 12,
         }}
       >
-        <ConnectButton />
+        <ConnectButton showBalance={true}/>
       </div>
       <div style={{ padding: 20 }}>
-        <button onClick={handleGenerateNFT} disabled={loading}>
-          {loading ? 'Generating...' : 'Generate NFT'}
-        </button>
-      </div>
+        <form onSubmit={mintNFT}>
+          <input name="name" placeholder="MyNFT" required />
+          <input name="symbol" placeholder="MNFT" required />
+          <button 
+          disabled={isPending} 
+          type="submit"
+          >
+            {isPending ? 'Confirming...' : 'Mint'}
+          </button>
+          {hash && <div>Transaction Hash: {hash}</div>}
+          {isConfirming && <div>Waiting for confirmation...</div>}
+          {isConfirmed && <div>Transaction confirmed.</div>}
+          {error && (
+            <div>Error: {(error as BaseError).shortMessage || error.message}</div>
+          )}
+        </form>
+      </div>  
     </div>
   );
 }
