@@ -1,16 +1,12 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { type BaseError, useAccount, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
+import { type BaseError, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import {abi} from '../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json'; 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useEthersSigner } from './providers';
 
 const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 
 function Page() {
-  const { address, isConnected } = useAccount();
-  const signer = useEthersSigner()
   const { 
     data: hash, 
     isPending, 
