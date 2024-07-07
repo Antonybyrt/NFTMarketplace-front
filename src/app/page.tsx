@@ -1,12 +1,15 @@
 "use client";
-import { MintNFT } from '@/components/MintNFT';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
 
 function Page() {
   return (
     <div>
-      <div style={{ padding: 20 }}>
-        <MintNFT />
+      <div className="background-container">
+        <div className="overlay"></div>
+        <div className="content">
+          
+        </div>
       </div>
     </div>
   );
