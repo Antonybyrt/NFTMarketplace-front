@@ -26,4 +26,4 @@ run the front end :
 npm run dev
 ```
 
-Don't forget to install dependencies.
+Don't forget to install dependencies after pulling.
