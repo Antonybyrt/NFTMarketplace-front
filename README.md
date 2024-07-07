@@ -17,11 +17,13 @@ Network Name: localhost
 New RPC URL: http://127.0.0.1:8545/  
 Chain ID: 31337 (default for Hardhat)  
 Currency Symbol: ETH (optional)  
-Block Explorer URL: (leave blank)  
+Block Explorer URL: (leave blank)
+
+### Using Next.js, Wagmi and RainbowKit
 
 run the front end : 
 ```shell
-npm start
+npm run dev
 ```
 
 Don't forget to install dependencies.
