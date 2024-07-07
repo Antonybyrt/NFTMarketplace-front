@@ -19,7 +19,7 @@ const NavBar = () => {
         <div className="container-fluid">
           <a className="navbar-brand d-flex align-items-center" href="#">
             <Image src={logo} alt="Logo" width={60} height={60} className="rounded-circle" />
-            <span className="ms-2 title">SpiceDonut</span>
+            <span className="ms-2 title" onClick={() => router.push('/')}>SpiceDonut</span>
           </a>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
