@@ -6,6 +6,7 @@ import { ISubscribe } from '@/models/subscribe.model';
 import { Address } from 'viem';
 import { AuthService } from '@/service/auth.service';
 import { ServiceErrorCode } from '@/service/service.result';
+import * as bootstrap from 'bootstrap';
 
 const SignUpModal = () => {
     const { connector } = getAccount(config);
@@ -17,56 +18,68 @@ const SignUpModal = () => {
         signature: ''
     });
     const [errorMessage, setErrorMessage] = useState<string>();
+    const [successMessage, setSuccessMessage] = useState<string>();
 
     const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
         const text = event.target.value;
-        setSub((old) => {
-            old.login = text;
-            return old;
-        });
+        setSub((old) => ({
+            ...old,
+            login: text,
+        }));
     }
 
     const handleFirstNameChange = (event: ChangeEvent<HTMLInputElement>) => {
         const text = event.target.value;
-        setSub((old) => {
-            old.login = text;
-            return old;
-        });
+        setSub((old) => ({
+            ...old,
+            firstname: text,
+        }));
     }
 
     const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
         const text = event.target.value;
-        setSub((old) => {
-            old.login = text;
-            return old;
-        });
+        setSub((old) => ({
+            ...old,
+            name: text,
+        }));
     }
 
-    const handleSignatureChange = (address: Address) => {
-        setSub((old) => {
-            old.signature = address;
-            return old;
-        });
+    const handleSignatureChange = (signature: string) => {
+        setSub((old) => ({
+            ...old,
+            signature,
+        }));
     }
 
-    const handleSubscribe = async () => {
-        const result = await AuthService.subscribe(sub);
-        if(result.errorCode === ServiceErrorCode.success) {
-            return;
-        }
-        if(result.errorCode === ServiceErrorCode.conflict) {
-            setErrorMessage('Email already exists');
-            return;
-        }
-        setErrorMessage('Internal server error');
+    const handleSubscribe = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault(); 
+      const result = await AuthService.subscribe(sub);
+      if (result.errorCode === ServiceErrorCode.success) {
+          setErrorMessage('');
+          
+          const modal = document.getElementById('signUpModal');
+          if (modal) {
+              const modalInstance = bootstrap.Modal.getInstance(modal);
+              modalInstance?.dispose();
+              setSuccessMessage('Created successfully');
+          }
+      } else {
+          if (result.errorCode === ServiceErrorCode.conflict) {
+              setErrorMessage('Email or wallet already exists');
+          } else {
+              setErrorMessage('Internal server error');
+          }
+      }
     };
 
-    async function handleSignMessage() {
+    async function handleSignMessage(event: React.MouseEvent<HTMLButtonElement>) {
+      event.preventDefault();
         try {
           const result = await signMessage(config, {
             connector,
             message: 'esgi',
           });
+          handleSignatureChange(result);
           console.log('Message signed:', result);
         } catch (error) {
           console.error('Error signing message:', error);
@@ -82,7 +95,7 @@ const SignUpModal = () => {
             <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            <form>
+            <form onSubmit={handleSubscribe}>
               <div className="mb-3">
                 <label htmlFor="text" className="form-label">First name</label>
                 <input type="text" className="form-control bg-dark text-light" id="firstname" onChange={handleFirstNameChange} required />
@@ -95,8 +108,11 @@ const SignUpModal = () => {
                 <label htmlFor="email" className="form-label">Email address</label>
                 <input type="email" className="form-control bg-dark text-light" id="email" aria-describedby="emailHelp" onChange={handleEmailChange} required />
               </div>
-              <button onClick={handleSignMessage} className="btn btn-outline-light">Sign</button>
+              <button type="button" onClick={handleSignMessage} className="btn btn-outline-light">Sign message</button>
+              <button type="submit" className="btn btn-outline-light">Sign up</button>
             </form>
+            {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
+            {successMessage && <div className="alert alert-success mt-3">{successMessage}</div>}
           </div>
         </div>
       </div>

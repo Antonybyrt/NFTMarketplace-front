@@ -9,12 +9,9 @@ import logo from '../../../public/image/logo.png';
 import './NavBar.css';
 import SignInModal from '../modals/signIn';
 import SignUpModal from '../modals/signUp';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const NavBar = () => {
-
-  useEffect(() => {
-    import('bootstrap/dist/js/bootstrap.bundle.min.js');
-  }, []);
 
   return (
     <>
