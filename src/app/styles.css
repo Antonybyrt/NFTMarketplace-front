@@ -1,8 +1,8 @@
 .background-container {
     position: relative;
     height: 60vh;
-    background-image: url('../../public/image/Space.png');
-    background-size: cover;
+    background-image: url('../../public/image/Space.jpg');
+    background-size: contain;
     background-position: center;
     display: flex;
     align-items: center;
