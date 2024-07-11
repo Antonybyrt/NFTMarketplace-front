@@ -23,24 +23,57 @@ import type {
   TypedContractMethod,
 } from "../common";
 
+export declare namespace NFTFactory {
+  export type CollectionStruct = {
+    collectionAddress: AddressLike;
+    name: string;
+    symbol: string;
+    owner: AddressLike;
+  };
+
+  export type CollectionStructOutput = [
+    collectionAddress: string,
+    name: string,
+    symbol: string,
+    owner: string
+  ] & {
+    collectionAddress: string;
+    name: string;
+    symbol: string;
+    owner: string;
+  };
+}
+
 export interface NFTFactoryInterface extends Interface {
   getFunction(
     nameOrSignature:
-      | "generateNFT"
+      | "addNFTToCollection"
+      | "buy"
+      | "collections"
+      | "createCollection"
       | "getAlreadyListed"
-      | "getIdMarket"
-      | "getNFT"
-      | "getNFTNameById"
+      | "getCollections"
+      | "getNFTsInCollection"
       | "idMarket"
-      | "list"
       | "market"
       | "sell"
   ): FunctionFragment;
 
-  getEvent(nameOrSignatureOrTopic: "Debug" | "createdNFT"): EventFragment;
+  getEvent(
+    nameOrSignatureOrTopic: "CollectionCreated" | "Debug" | "NFTAdded"
+  ): EventFragment;
 
   encodeFunctionData(
-    functionFragment: "generateNFT",
+    functionFragment: "addNFTToCollection",
+    values: [AddressLike, string, string]
+  ): string;
+  encodeFunctionData(functionFragment: "buy", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "collections",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "createCollection",
     values: [string, string]
   ): string;
   encodeFunctionData(
@@ -48,16 +81,14 @@ export interface NFTFactoryInterface extends Interface {
     values: [AddressLike]
   ): string;
   encodeFunctionData(
-    functionFragment: "getIdMarket",
+    functionFragment: "getCollections",
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "getNFT", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "getNFTNameById",
-    values: [BigNumberish]
+    functionFragment: "getNFTsInCollection",
+    values: [AddressLike]
   ): string;
   encodeFunctionData(functionFragment: "idMarket", values?: undefined): string;
-  encodeFunctionData(functionFragment: "list", values: [BigNumberish]): string;
   encodeFunctionData(
     functionFragment: "market",
     values: [BigNumberish]
@@ -68,7 +99,16 @@ export interface NFTFactoryInterface extends Interface {
   ): string;
 
   decodeFunctionResult(
-    functionFragment: "generateNFT",
+    functionFragment: "addNFTToCollection",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "buy", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "collections",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "createCollection",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -76,18 +116,38 @@ export interface NFTFactoryInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getIdMarket",
+    functionFragment: "getCollections",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "getNFT", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "getNFTNameById",
+    functionFragment: "getNFTsInCollection",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "idMarket", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "list", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "market", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "sell", data: BytesLike): Result;
+}
+
+export namespace CollectionCreatedEvent {
+  export type InputTuple = [
+    collectionAddress: AddressLike,
+    name: string,
+    symbol: string
+  ];
+  export type OutputTuple = [
+    collectionAddress: string,
+    name: string,
+    symbol: string
+  ];
+  export interface OutputObject {
+    collectionAddress: string;
+    name: string;
+    symbol: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
 }
 
 export namespace DebugEvent {
@@ -102,11 +162,19 @@ export namespace DebugEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export namespace createdNFTEvent {
-  export type InputTuple = [adresse: AddressLike, name: string, symbol: string];
-  export type OutputTuple = [adresse: string, name: string, symbol: string];
+export namespace NFTAddedEvent {
+  export type InputTuple = [
+    collectionAddress: AddressLike,
+    name: string,
+    symbol: string
+  ];
+  export type OutputTuple = [
+    collectionAddress: string,
+    name: string,
+    symbol: string
+  ];
   export interface OutputObject {
-    adresse: string;
+    collectionAddress: string;
     name: string;
     symbol: string;
   }
@@ -159,7 +227,28 @@ export interface NFTFactory extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
-  generateNFT: TypedContractMethod<
+  addNFTToCollection: TypedContractMethod<
+    [collectionAddress: AddressLike, name: string, symbol: string],
+    [void],
+    "nonpayable"
+  >;
+
+  buy: TypedContractMethod<[marketId: BigNumberish], [void], "payable">;
+
+  collections: TypedContractMethod<
+    [arg0: BigNumberish],
+    [
+      [string, string, string, string] & {
+        collectionAddress: string;
+        name: string;
+        symbol: string;
+        owner: string;
+      }
+    ],
+    "view"
+  >;
+
+  createCollection: TypedContractMethod<
     [name: string, symbol: string],
     [void],
     "nonpayable"
@@ -171,15 +260,19 @@ export interface NFTFactory extends BaseContract {
     "view"
   >;
 
-  getIdMarket: TypedContractMethod<[], [bigint], "view">;
+  getCollections: TypedContractMethod<
+    [],
+    [NFTFactory.CollectionStructOutput[]],
+    "view"
+  >;
 
-  getNFT: TypedContractMethod<[], [string[]], "view">;
-
-  getNFTNameById: TypedContractMethod<[id: BigNumberish], [string], "view">;
+  getNFTsInCollection: TypedContractMethod<
+    [collectionAddress: AddressLike],
+    [[string[], string[]] & { names: string[]; symbols: string[] }],
+    "view"
+  >;
 
   idMarket: TypedContractMethod<[], [bigint], "view">;
-
-  list: TypedContractMethod<[arg0: BigNumberish], [string], "view">;
 
   market: TypedContractMethod<
     [arg0: BigNumberish],
@@ -206,26 +299,48 @@ export interface NFTFactory extends BaseContract {
   ): T;
 
   getFunction(
-    nameOrSignature: "generateNFT"
+    nameOrSignature: "addNFTToCollection"
+  ): TypedContractMethod<
+    [collectionAddress: AddressLike, name: string, symbol: string],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "buy"
+  ): TypedContractMethod<[marketId: BigNumberish], [void], "payable">;
+  getFunction(
+    nameOrSignature: "collections"
+  ): TypedContractMethod<
+    [arg0: BigNumberish],
+    [
+      [string, string, string, string] & {
+        collectionAddress: string;
+        name: string;
+        symbol: string;
+        owner: string;
+      }
+    ],
+    "view"
+  >;
+  getFunction(
+    nameOrSignature: "createCollection"
   ): TypedContractMethod<[name: string, symbol: string], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "getAlreadyListed"
   ): TypedContractMethod<[collection: AddressLike], [boolean], "view">;
   getFunction(
-    nameOrSignature: "getIdMarket"
-  ): TypedContractMethod<[], [bigint], "view">;
+    nameOrSignature: "getCollections"
+  ): TypedContractMethod<[], [NFTFactory.CollectionStructOutput[]], "view">;
   getFunction(
-    nameOrSignature: "getNFT"
-  ): TypedContractMethod<[], [string[]], "view">;
-  getFunction(
-    nameOrSignature: "getNFTNameById"
-  ): TypedContractMethod<[id: BigNumberish], [string], "view">;
+    nameOrSignature: "getNFTsInCollection"
+  ): TypedContractMethod<
+    [collectionAddress: AddressLike],
+    [[string[], string[]] & { names: string[]; symbols: string[] }],
+    "view"
+  >;
   getFunction(
     nameOrSignature: "idMarket"
   ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "list"
-  ): TypedContractMethod<[arg0: BigNumberish], [string], "view">;
   getFunction(
     nameOrSignature: "market"
   ): TypedContractMethod<
@@ -250,6 +365,13 @@ export interface NFTFactory extends BaseContract {
   >;
 
   getEvent(
+    key: "CollectionCreated"
+  ): TypedContractEvent<
+    CollectionCreatedEvent.InputTuple,
+    CollectionCreatedEvent.OutputTuple,
+    CollectionCreatedEvent.OutputObject
+  >;
+  getEvent(
     key: "Debug"
   ): TypedContractEvent<
     DebugEvent.InputTuple,
@@ -257,14 +379,25 @@ export interface NFTFactory extends BaseContract {
     DebugEvent.OutputObject
   >;
   getEvent(
-    key: "createdNFT"
+    key: "NFTAdded"
   ): TypedContractEvent<
-    createdNFTEvent.InputTuple,
-    createdNFTEvent.OutputTuple,
-    createdNFTEvent.OutputObject
+    NFTAddedEvent.InputTuple,
+    NFTAddedEvent.OutputTuple,
+    NFTAddedEvent.OutputObject
   >;
 
   filters: {
+    "CollectionCreated(address,string,string)": TypedContractEvent<
+      CollectionCreatedEvent.InputTuple,
+      CollectionCreatedEvent.OutputTuple,
+      CollectionCreatedEvent.OutputObject
+    >;
+    CollectionCreated: TypedContractEvent<
+      CollectionCreatedEvent.InputTuple,
+      CollectionCreatedEvent.OutputTuple,
+      CollectionCreatedEvent.OutputObject
+    >;
+
     "Debug(string)": TypedContractEvent<
       DebugEvent.InputTuple,
       DebugEvent.OutputTuple,
@@ -276,15 +409,15 @@ export interface NFTFactory extends BaseContract {
       DebugEvent.OutputObject
     >;
 
-    "createdNFT(address,string,string)": TypedContractEvent<
-      createdNFTEvent.InputTuple,
-      createdNFTEvent.OutputTuple,
-      createdNFTEvent.OutputObject
+    "NFTAdded(address,string,string)": TypedContractEvent<
+      NFTAddedEvent.InputTuple,
+      NFTAddedEvent.OutputTuple,
+      NFTAddedEvent.OutputObject
     >;
-    createdNFT: TypedContractEvent<
-      createdNFTEvent.InputTuple,
-      createdNFTEvent.OutputTuple,
-      createdNFTEvent.OutputObject
+    NFTAdded: TypedContractEvent<
+      NFTAddedEvent.InputTuple,
+      NFTAddedEvent.OutputTuple,
+      NFTAddedEvent.OutputObject
     >;
   };
 }

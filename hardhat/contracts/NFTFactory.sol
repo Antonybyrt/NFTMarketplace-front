@@ -1,13 +1,21 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.24;
 
 import {NFT} from "./NFT.sol";
 
 contract NFTFactory {
 
-    NFT[] public list;
+    struct Collection {
+        address collectionAddress;
+        string name;
+        string symbol;
+        address owner;
+    }
 
-    event createdNFT(address adresse, string name, string symbol);
+    Collection[] public collections;
+
+    event CollectionCreated(address collectionAddress, string name, string symbol);
+    event NFTAdded(address collectionAddress, string name, string symbol);
     event Debug(string message);
 
     struct Listed {
@@ -19,36 +27,48 @@ contract NFTFactory {
     }
 
     mapping(uint256 => Listed) public market;
-
     uint256 public idMarket;
 
     error ALREADY_LISTED(address collection);
 
     constructor() {}
 
-    function generateNFT(string memory name, string memory symbol) public {
-        emit Debug("generateNFT started");
-        NFT newNFT = new NFT(name, symbol);
-        list.push(newNFT);
-        emit createdNFT(address(newNFT), name, symbol);
-        emit Debug("generateNFT finished");
+    function createCollection(string memory name, string memory symbol) public {
+        emit Debug("createCollection started");
+        NFT newCollection = new NFT(name, symbol);
+        collections.push(Collection({
+            collectionAddress: address(newCollection),
+            name: name,
+            symbol: symbol,
+            owner: msg.sender
+        }));
+        emit CollectionCreated(address(newCollection), name, symbol);
+        emit Debug("createCollection finished");
     }
 
-    function getNFT () public view returns (NFT[] memory){
-        NFT[] memory tmpList = new NFT[](list.length);
-        for (uint i = 0; i < list.length; i ++) {
-            tmpList[i] = list[i];
+    function addNFTToCollection(address collectionAddress, string memory name, string memory symbol) public {
+        bool found = false;
+        for (uint256 i = 0; i < collections.length; i++) {
+            if (collections[i].collectionAddress == collectionAddress && collections[i].owner == msg.sender) {
+                found = true;
+                break;
+            }
         }
+        require(found, "Collection not found or not owned by sender");
 
-        return tmpList;
+        NFT nftInstance = NFT(collectionAddress);
+        nftInstance.mint(msg.sender, name, symbol);
+
+        emit NFTAdded(collectionAddress, name, symbol);
     }
 
-    function getNFTNameById (uint256 id) public view returns (string memory){
-        return list[id].name();
+    function getCollections() public view returns (Collection[] memory) {
+        return collections;
     }
 
-    function getIdMarket() public view returns(uint256) {
-        return idMarket;
+    function getNFTsInCollection(address collectionAddress) public view returns (string[] memory names, string[] memory symbols) {
+        NFT nftInstance = NFT(collectionAddress);
+        return nftInstance.getNFTs();
     }
 
     function getAlreadyListed (address collection) public view returns (bool){
@@ -57,7 +77,6 @@ contract NFTFactory {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -66,10 +85,27 @@ contract NFTFactory {
             revert ALREADY_LISTED(collection);
         }
         market[idMarket] = Listed(price, msg.sender, collection, block.timestamp, false);
-        idMarket ++;
+        idMarket++;
 
         NFT nftInstance = NFT(collection);
         nftInstance.transferFrom(msg.sender, address(this), tokenId);
     }
 
+    function buy(uint256 marketId) public payable {
+        require(marketId < idMarket, "Invalid market ID");
+        require(!market[marketId].locked, "NFT already sold");
+
+        Listed storage listedNFT = market[marketId];
+
+        require(msg.value >= listedNFT.price, "Insufficient funds to purchase NFT");
+
+        listedNFT.locked = true;
+
+        payable(listedNFT.seller).transfer(listedNFT.price);
+
+        NFT nftInstance = NFT(listedNFT.collection);
+        nftInstance.transferFrom(address(this), msg.sender, marketId);
+
+        emit Debug("NFT purchased successfully");
+    }
 }

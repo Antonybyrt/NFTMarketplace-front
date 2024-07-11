@@ -29,8 +29,11 @@ export interface NFTInterface extends Interface {
       | "approve"
       | "balanceOf"
       | "getApproved"
+      | "getNFTs"
       | "isApprovedForAll"
+      | "mint"
       | "name"
+      | "nfts"
       | "ownerOf"
       | "safeTransferFrom(address,address,uint256)"
       | "safeTransferFrom(address,address,uint256,bytes)"
@@ -57,11 +60,17 @@ export interface NFTInterface extends Interface {
     functionFragment: "getApproved",
     values: [BigNumberish]
   ): string;
+  encodeFunctionData(functionFragment: "getNFTs", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "isApprovedForAll",
     values: [AddressLike, AddressLike]
   ): string;
+  encodeFunctionData(
+    functionFragment: "mint",
+    values: [AddressLike, string, string]
+  ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
+  encodeFunctionData(functionFragment: "nfts", values: [BigNumberish]): string;
   encodeFunctionData(
     functionFragment: "ownerOf",
     values: [BigNumberish]
@@ -98,11 +107,14 @@ export interface NFTInterface extends Interface {
     functionFragment: "getApproved",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "getNFTs", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "isApprovedForAll",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "nfts", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "safeTransferFrom(address,address,uint256)",
@@ -239,13 +251,31 @@ export interface NFT extends BaseContract {
 
   getApproved: TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
 
+  getNFTs: TypedContractMethod<
+    [],
+    [[string[], string[]] & { names: string[]; symbols: string[] }],
+    "view"
+  >;
+
   isApprovedForAll: TypedContractMethod<
     [owner: AddressLike, operator: AddressLike],
     [boolean],
     "view"
   >;
 
+  mint: TypedContractMethod<
+    [to: AddressLike, name: string, symbol: string],
+    [void],
+    "nonpayable"
+  >;
+
   name: TypedContractMethod<[], [string], "view">;
+
+  nfts: TypedContractMethod<
+    [arg0: BigNumberish],
+    [[string, string] & { name: string; symbol: string }],
+    "view"
+  >;
 
   ownerOf: TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
 
@@ -306,6 +336,13 @@ export interface NFT extends BaseContract {
     nameOrSignature: "getApproved"
   ): TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
   getFunction(
+    nameOrSignature: "getNFTs"
+  ): TypedContractMethod<
+    [],
+    [[string[], string[]] & { names: string[]; symbols: string[] }],
+    "view"
+  >;
+  getFunction(
     nameOrSignature: "isApprovedForAll"
   ): TypedContractMethod<
     [owner: AddressLike, operator: AddressLike],
@@ -313,8 +350,22 @@ export interface NFT extends BaseContract {
     "view"
   >;
   getFunction(
+    nameOrSignature: "mint"
+  ): TypedContractMethod<
+    [to: AddressLike, name: string, symbol: string],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
     nameOrSignature: "name"
   ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "nfts"
+  ): TypedContractMethod<
+    [arg0: BigNumberish],
+    [[string, string] & { name: string; symbol: string }],
+    "view"
+  >;
   getFunction(
     nameOrSignature: "ownerOf"
   ): TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
