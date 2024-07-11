@@ -1,13 +1,18 @@
 # Spicy Donut Market Project
 
-To make the project work : 
+To make the project work :
 
-launch the nodes :
+Compile the contracts :
+```shell
+npx hardhat compile
+```
+
+Launch the nodes :
 ```shell
 npx hardhat node
 ```
 
-compile the contracts :
+Deploy the contracts :
 ```shell
 npx hardhat run --network localhost scripts/deploy.ts
 ```
