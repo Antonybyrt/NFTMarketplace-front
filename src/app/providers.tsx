@@ -24,7 +24,7 @@ import { http } from 'viem'
 export const config = getDefaultConfig({
     appName: 'NFTMarketplace',
     projectId: '40ffbdb9a70d28b07e3270fc658d1439',
-    chains: [mainnet, polygon, optimism, arbitrum, base, hardhat],
+    chains: [mainnet, polygon, optimism, arbitrum, base, hardhat, sepolia],
     transports: {
       [mainnet.id]: http(),
       [sepolia.id]: http(),
@@ -32,7 +32,7 @@ export const config = getDefaultConfig({
     }
 });
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

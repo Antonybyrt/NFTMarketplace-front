@@ -11,12 +11,15 @@ export class CollectionService {
 
     static async createCollection(input: ICollection): Promise<ServiceResult<ICollectionId>> {
         try {
+            console.log(input)
             const res = await axios.post(`${APIService.baseURL}/collection`, input);
-            if(res.status === 201) {
+            if (res.status === 201) {
+                console.log('capart')
                 return ServiceResult.success<ICollectionId>(res.data);
             }
+            console.log('caparpa')
             return ServiceResult.failed();
-        } catch(err) {
+        } catch (err) {
             return ServiceResult.failed();
         }
     }

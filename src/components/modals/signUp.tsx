@@ -53,6 +53,7 @@ const SignUpModal = () => {
 
     const handleSubscribe = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault(); 
+      console.log(sub)
       const result = await AuthService.subscribe(sub);
       if (result.errorCode === ServiceErrorCode.success) {
           setErrorMessage('');

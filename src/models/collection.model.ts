@@ -1,7 +1,7 @@
 export interface ICollection {
     name: string;
     symbol: string;
-    ownerId: number;
+    address: string;
 }
 
 export type ICollectionId = ICollection & { _id: string };

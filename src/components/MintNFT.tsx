@@ -2,7 +2,8 @@ import * as React from 'react';
 import { 
   type BaseError,
   useWaitForTransactionReceipt, 
-  useWriteContract 
+  useWriteContract,
+  useReadContract 
 } from 'wagmi';
 import {abi} from '../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json'; 
 
@@ -29,7 +30,7 @@ export function MintNFT() {
         writeContract({
             address: NFT_FACTORY_ADDRESS,
             abi,
-            functionName: 'generateNFT',
+            functionName: 'addNFTToCollection',
             args: [String(name), String(symbol)],
         })
     }
