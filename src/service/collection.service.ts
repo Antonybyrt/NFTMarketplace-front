@@ -26,7 +26,7 @@ export class CollectionService {
 
     static async getCollectionByUser(userId: string): Promise<ServiceResult<ICollectionId[]>> {
         try {
-            const res = await axios.get(`${APIService.baseURL}/collection/mine/${userId}`);
+            const res = await axios.get(`${APIService.baseURL}/collection/user/${userId}`);
             if (res.status === 200) {
                 return ServiceResult.success<ICollectionId[]>(res.data);
             }
