@@ -1,42 +1,6 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/contracts/Lock.sol": {
-      "lastModificationDate": 1720020224281,
-      "contentHash": "1355eb252875a88cbda4218ba4c2a268",
-      "sourceName": "contracts/Lock.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.17"
-      ],
-      "artifacts": [
-        "Lock"
-      ]
-    },
     "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/contracts/NFT.sol": {
       "lastModificationDate": 1720729559952,
       "contentHash": "d316166eaea5d2910b79289329fd9044",

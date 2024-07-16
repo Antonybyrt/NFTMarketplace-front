@@ -2,11 +2,12 @@ import * as React from 'react';
 import { 
   type BaseError,
   useWaitForTransactionReceipt, 
-  useWriteContract 
+  useWriteContract,
+  useReadContract 
 } from 'wagmi';
 import {abi} from '../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json'; 
 
-const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Replace by the address of your deployed contract
 
 export function MintNFT() {
     const {
@@ -29,7 +30,7 @@ export function MintNFT() {
         writeContract({
             address: NFT_FACTORY_ADDRESS,
             abi,
-            functionName: 'generateNFT',
+            functionName: 'addNFTToCollection',
             args: [String(name), String(symbol)],
         })
     }

@@ -5,6 +5,7 @@ import { ServiceErrorCode } from '@/service/service.result';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import {useRouter} from "next/navigation";
+import { CreateCollection } from '@/components/CreateCollection';
 
 function MyAccountPage() {
     const router = useRouter();
@@ -58,6 +59,7 @@ function MyAccountPage() {
                     <button className="btn btn-primary" onClick={() => router.push('/auth/logout')}>Log out</button>
                 </div>
             </div>
+            <CreateCollection user={user}/>
         </div>
     );
 }
