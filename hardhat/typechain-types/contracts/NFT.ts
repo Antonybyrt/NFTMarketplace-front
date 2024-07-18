@@ -45,7 +45,11 @@ export interface NFTInterface extends Interface {
   ): FunctionFragment;
 
   getEvent(
-    nameOrSignatureOrTopic: "Approval" | "ApprovalForAll" | "Transfer"
+    nameOrSignatureOrTopic:
+      | "Approval"
+      | "ApprovalForAll"
+      | "NFTAdded"
+      | "Transfer"
   ): EventFragment;
 
   encodeFunctionData(
@@ -180,6 +184,24 @@ export namespace ApprovalForAllEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
+export namespace NFTAddedEvent {
+  export type InputTuple = [
+    tokenId: BigNumberish,
+    name: string,
+    symbol: string
+  ];
+  export type OutputTuple = [tokenId: bigint, name: string, symbol: string];
+  export interface OutputObject {
+    tokenId: bigint;
+    name: string;
+    symbol: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
 export namespace TransferEvent {
   export type InputTuple = [
     from: AddressLike,
@@ -273,7 +295,13 @@ export interface NFT extends BaseContract {
 
   nfts: TypedContractMethod<
     [arg0: BigNumberish],
-    [[string, string] & { name: string; symbol: string }],
+    [
+      [string, string, bigint] & {
+        name: string;
+        symbol: string;
+        tokenId: bigint;
+      }
+    ],
     "view"
   >;
 
@@ -363,7 +391,13 @@ export interface NFT extends BaseContract {
     nameOrSignature: "nfts"
   ): TypedContractMethod<
     [arg0: BigNumberish],
-    [[string, string] & { name: string; symbol: string }],
+    [
+      [string, string, bigint] & {
+        name: string;
+        symbol: string;
+        tokenId: bigint;
+      }
+    ],
     "view"
   >;
   getFunction(
@@ -427,6 +461,13 @@ export interface NFT extends BaseContract {
     ApprovalForAllEvent.OutputObject
   >;
   getEvent(
+    key: "NFTAdded"
+  ): TypedContractEvent<
+    NFTAddedEvent.InputTuple,
+    NFTAddedEvent.OutputTuple,
+    NFTAddedEvent.OutputObject
+  >;
+  getEvent(
     key: "Transfer"
   ): TypedContractEvent<
     TransferEvent.InputTuple,
@@ -455,6 +496,17 @@ export interface NFT extends BaseContract {
       ApprovalForAllEvent.InputTuple,
       ApprovalForAllEvent.OutputTuple,
       ApprovalForAllEvent.OutputObject
+    >;
+
+    "NFTAdded(uint256,string,string)": TypedContractEvent<
+      NFTAddedEvent.InputTuple,
+      NFTAddedEvent.OutputTuple,
+      NFTAddedEvent.OutputObject
+    >;
+    NFTAdded: TypedContractEvent<
+      NFTAddedEvent.InputTuple,
+      NFTAddedEvent.OutputTuple,
+      NFTAddedEvent.OutputObject
     >;
 
     "Transfer(address,address,uint256)": TypedContractEvent<

@@ -7,16 +7,19 @@ contract NFT is ERC721 {
     struct NFTData {
         string name;
         string symbol;
+        uint256 tokenId;
     }
 
     NFTData[] public nfts;
+    event NFTAdded(uint256 tokenId, string name, string symbol);
 
     constructor(string memory name, string memory symbol) ERC721(name, symbol) {}
 
     function mint(address to, string memory name, string memory symbol) public {
         uint256 tokenId = nfts.length;
         _mint(to, tokenId);
-        nfts.push(NFTData({name: name, symbol: symbol}));
+        nfts.push(NFTData({name: name, symbol: symbol, tokenId: tokenId}));
+        emit NFTAdded(tokenId, name, symbol);
     }
 
     function getNFTs() public view returns (string[] memory names, string[] memory symbols) {

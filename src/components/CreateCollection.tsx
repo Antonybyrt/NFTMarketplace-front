@@ -80,18 +80,21 @@ export function CreateCollection({user}: CreateCollectionProps) {
         console.error('User not found');
         return;
       }
-      console.log('hey')
         const collectionData = {
             name: formData.name,
             symbol: formData.symbol,
             address: collectionAddress,
             user: user 
         };
-        const result = await CollectionService.createCollection(collectionData);
-        if (result.errorCode === ServiceErrorCode.success) {
-            console.log('Collection saved successfully');
-        } else {
-            console.error('Failed to save collection');
+        try {
+          const result = await CollectionService.createCollection(collectionData);
+          if (result.errorCode === ServiceErrorCode.success) {
+            ErrorService.successMessage('Collection created', 'hash :' + hash);
+          } else {
+            ErrorService.errorMessage('Error','Failed to create collection');
+          }
+        } catch (error) {
+          ErrorService.errorMessage('Failed to create collection', 'Error :' + error);
         }
     }
 
