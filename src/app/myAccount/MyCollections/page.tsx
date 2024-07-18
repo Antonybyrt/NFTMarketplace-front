@@ -71,6 +71,7 @@ const CollectionsPage = () => {
       show={showModal}
       handleClose={handleCloseModal}
       collection={selectedCollection}
+      user={user}
     />
   </div>
   );

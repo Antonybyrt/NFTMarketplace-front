@@ -1,9 +1,8 @@
 export interface INFT {
     name: string;
     symbol: string;
-    spicyPower?: number;
-    collectionId: number;
-    userId: number;
+    user: number;
+    pack: number;
 }
 
 export type INFTId = INFT & { _id: string };
