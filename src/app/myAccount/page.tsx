@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import {useRouter} from "next/navigation";
 import { CreateCollection } from '@/components/CreateCollection';
+import { ErrorService } from '@/service/error.service';
 
 function MyAccountPage() {
     const router = useRouter();
@@ -18,7 +19,7 @@ function MyAccountPage() {
         const fetchUser = async () => {
             if(!token) {
                 setIsLoading(false);
-                alert('Please, log in before accessing to your informations');
+                ErrorService.errorMessage('Account access', 'Please, login before trying to access');
                 router.push('../');
                 return;
             }
@@ -46,8 +47,9 @@ function MyAccountPage() {
     return (
         <div className="container mt-5">
             <div className="card bg-dark text-light">
-                <div className="card-header">
-                    My Account
+                <div className="card-header d-flex justify-content-between align-items-center">
+                    <span>My Account</span>
+                    <button className="btn btn-primary" onClick={() => router.push('/auth/logout')}>Log out</button>
                 </div>
                 <div className="card-body">
                     {user && (
@@ -56,10 +58,14 @@ function MyAccountPage() {
                             <p className="card-text"><strong>Email:</strong> {user.mail}</p>
                         </>
                     )}
-                    <button className="btn btn-primary" onClick={() => router.push('/auth/logout')}>Log out</button>
+                    <div className="d-flex justify-content-end">
+                        <button className="btn btn-link text-light" onClick={() => router.push('/myAccount/MyCollections')}>
+                            Mes collections
+                        </button>
+                    </div>
                 </div>
             </div>
-            <CreateCollection user={user}/>
+            <CreateCollection user={user} />
         </div>
     );
 }
