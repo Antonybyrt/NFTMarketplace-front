@@ -3,6 +3,7 @@ import { type BaseError, useWaitForTransactionReceipt, useWriteContract } from '
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { abi } from '../../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json';
+import { ErrorService } from '@/service/error.service';
 
 const NFT_FACTORY_ADDRESS = '0x5C5fE5926a72a530C8A517780857eEC7333c362D'; // Remplacez par l'adresse de votre contrat déployé
 
@@ -24,6 +25,12 @@ export function MintNFTModal({ show, handleClose, collection }: any) {
       functionName: 'addNFTToCollection',
       args: [collection.address, String(name), String(symbol)],
     });
+
+    if(isConfirmed && hash) {
+      ErrorService.successMessage('NFT created', 'hash :' + hash)
+    } else if (error) {
+      ErrorService.errorMessage('Failed to create', error.message)
+    }
   }
 
   return (
@@ -48,14 +55,7 @@ export function MintNFTModal({ show, handleClose, collection }: any) {
           >
             {isPending ? 'Confirming...' : 'Mint'}
           </button>
-          {hash && <div className="mt-3 alert alert-info">Transaction Hash: {hash}</div>}
           {isConfirming && <div className="mt-3 alert alert-warning">Waiting for confirmation...</div>}
-          {isConfirmed && <div className="mt-3 alert alert-success">Transaction confirmed.</div>}
-          {error && (
-            <div className="mt-3 alert alert-danger">
-              Error: {(error as BaseError).shortMessage || error.message}
-            </div>
-          )}
         </form>
       </Modal.Body>
     </Modal>

@@ -9,12 +9,13 @@ import {
   useWatchContractEvent
 } from 'wagmi';
 import { abi } from '../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json'; 
-import { CollectionService } from '../service/collection.service'; // Assurez-vous d'importer le service correctement
+import { CollectionService } from '../service/collection.service';
+import { ErrorService } from '@/service/error.service';
 
 const NFT_FACTORY_ADDRESS = '0x5C5fE5926a72a530C8A517780857eEC7333c362D'; // Remplacez par l'adresse de votre contrat déployé
 
 interface CreateCollectionProps {
-  user: IUserId | undefined; // Remplacez `any` par le type de votre utilisateur
+  user: IUserId | undefined;
 }
 
 export function CreateCollection({user}: CreateCollectionProps) {
@@ -66,6 +67,12 @@ export function CreateCollection({user}: CreateCollectionProps) {
             functionName: 'createCollection',
             args: [String(name), String(symbol)],
         });
+
+        if(isConfirmed && hash) {
+          ErrorService.successMessage('Collection created', 'hash :' + hash)
+        } else if (error) {
+          ErrorService.errorMessage('Failed to create', error.message)
+        }
     }
 
     async function saveCollectionToWeb2(collectionAddress: string) {
@@ -121,14 +128,7 @@ export function CreateCollection({user}: CreateCollectionProps) {
         >
           {isPending ? 'Confirming...' : 'Create'}
         </button>
-        {hash && <div className="mt-3 alert alert-info">Transaction Hash: {hash}</div>}
         {isConfirming && <div className="mt-3 alert alert-warning">Waiting for confirmation...</div>}
-        {isConfirmed && <div className="mt-3 alert alert-success">Transaction confirmed.</div>}
-        {error && (
-          <div className="mt-3 alert alert-danger">
-            Error: {(error as BaseError).shortMessage || error.message}
-          </div>
-        )}
       </form>
     </div>
     );

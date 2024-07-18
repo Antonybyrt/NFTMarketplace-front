@@ -7,6 +7,7 @@ import { Address } from 'viem';
 import { AuthService } from '@/service/auth.service';
 import { ServiceErrorCode } from '@/service/service.result';
 import * as bootstrap from 'bootstrap';
+import { ErrorService } from '@/service/error.service';
 
 const SignUpModal = () => {
     const { connector } = getAccount(config);
@@ -17,8 +18,6 @@ const SignUpModal = () => {
         login: '',
         signature: ''
     });
-    const [errorMessage, setErrorMessage] = useState<string>();
-    const [successMessage, setSuccessMessage] = useState<string>();
 
     const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
         const text = event.target.value;
@@ -56,19 +55,18 @@ const SignUpModal = () => {
       console.log(sub)
       const result = await AuthService.subscribe(sub);
       if (result.errorCode === ServiceErrorCode.success) {
-          setErrorMessage('');
           
           const modal = document.getElementById('signUpModal');
           if (modal) {
               const modalInstance = bootstrap.Modal.getInstance(modal);
               modalInstance?.dispose();
-              setSuccessMessage('Created successfully');
+              ErrorService.successMessage('Authentification', 'Created successfully');
           }
       } else {
           if (result.errorCode === ServiceErrorCode.conflict) {
-              setErrorMessage('Email or wallet already exists');
+              ErrorService.errorMessage('Authentification','Email or wallet already exists');
           } else {
-              setErrorMessage('Internal server error');
+              ErrorService.errorMessage('Authentification','Email or wallet already exists');
           }
       }
     };
@@ -112,8 +110,6 @@ const SignUpModal = () => {
               <button type="button" onClick={handleSignMessage} className="btn btn-outline-light">Sign message</button>
               <button type="submit" className="btn btn-outline-light">Sign up</button>
             </form>
-            {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
-            {successMessage && <div className="alert alert-success mt-3">{successMessage}</div>}
           </div>
         </div>
       </div>

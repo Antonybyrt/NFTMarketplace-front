@@ -3,12 +3,20 @@ import Swal from 'sweetalert2'
 
 export class ErrorService {
 
-    successMessage = (title: string, msg: string) => {
+    static successMessage = (title: string, msg: string) => {
         return Swal.fire({
-            title: "Good job!",
-            text: "You clicked the button!",
+            title: title,
+            text: msg,
             icon: "success"
           });
+    }
+
+    static errorMessage = (title: string, msg: string) => {
+        return Swal.fire({
+            title: title,
+            text: msg,
+            icon: "error"
+        });
     }
 
 }
