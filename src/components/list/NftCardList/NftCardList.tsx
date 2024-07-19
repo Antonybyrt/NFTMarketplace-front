@@ -1,32 +1,25 @@
+// src/components/NftCardList/NftCardList.tsx
 import React, { useEffect, useState, useRef } from "react";
 import NftCard from "../NftCard/NftCard";
 import './NftCardList.css';
-
-// Définition du type pour les collections NFT
-interface NftCollection {
-  id: string;
-  name: string;
-  symbol: string;
-  address: string;
-  image?: string; // Si vous avez une image dans votre collection
-}
+import { NftCollection } from '../../../models/nftCollection.model';
+import { fetchNftCollections } from '../../../service/nftCollection.service';
 
 const NftCardList: React.FC = () => {
   const [nftCollections, setNftCollections] = useState<NftCollection[]>([]);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const fetchCollections = async () => {
+    const getCollections = async () => {
       try {
-        const response = await fetch('http://localhost:6789/collection/');
-        const data = await response.json();
+        const data = await fetchNftCollections();
         setNftCollections(data);
       } catch (error) {
         console.error('Error fetching collections:', error);
       }
     };
 
-    fetchCollections();
+    getCollections();
   }, []);
 
   const scrollLeft = () => {
@@ -51,7 +44,7 @@ const NftCardList: React.FC = () => {
       </button>
       <div ref={listRef} className="nft-card-list flex overflow-x-auto space-x-4">
         {nftCollections.map((collection) => (
-          <NftCard key={collection.id} collection={collection} />
+          <NftCard key={collection._id} collection={collection} />
         ))}
       </div>
       <button className="scroll-button right" onClick={scrollRight}>
