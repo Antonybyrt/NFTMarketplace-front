@@ -1,6 +1,7 @@
 "use client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
+import NftCardList from '../components/list/NftCardList/NftCardList';
 
 function Page() {
   return (
@@ -11,7 +12,13 @@ function Page() {
           
         </div>
       </div>
+      <div className="card-list-container">
+        <NftCardList />
+      </div>
     </div>
+
+    
+    
   );
 }
 

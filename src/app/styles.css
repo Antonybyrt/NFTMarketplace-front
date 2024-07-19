@@ -1,7 +1,7 @@
 .background-container {
     position: relative;
     height: 60vh;
-    background-image: url('../../public/image/Space.png');
+    background-image: url('../../public/image/Space.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -23,3 +23,6 @@
     z-index: 1;
   }
   
+  .card-list-container {
+    padding: 20px;
+  }
