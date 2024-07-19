@@ -1,11 +1,21 @@
-// src/components/NftGrid/NftGrid.jsx
+// src/components/NftGrid/NftGrid.tsx
 import React from 'react';
 import './NftGrid.css';
 
-const NftGrid = ({ nfts }) => {
+interface Nft {
+  id: number;
+  name: string;
+  image: string;
+}
+
+interface NftGridProps {
+  nfts: Nft[];
+}
+
+const NftGrid: React.FC<NftGridProps> = ({ nfts }) => {
   return (
     <div className="nft-grid">
-      {nfts.map(nft => (
+      {nfts.map((nft) => (
         <div key={nft.id} className="nft-item">
           <img className="nft-image" src={nft.image} alt={nft.name} />
           <div className="nft-details">

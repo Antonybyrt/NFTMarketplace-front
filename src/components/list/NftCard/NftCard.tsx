@@ -1,9 +1,19 @@
-// components/NftCard/NftCard.jsx
+// src/components/NftCard/NftCard.tsx
 import React from "react";
 import Link from 'next/link';
 import './NftCard.css';
 
-const NftCard = ({ collection }) => {
+interface NftCardProps {
+  collection: {
+    id: string;
+    name: string;
+    symbol: string;
+    address: string;
+    image?: string; // Si vous avez une image dans votre collection
+  };
+}
+
+const NftCard: React.FC<NftCardProps> = ({ collection }) => {
   console.log('Rendering NftCard with collection:', collection);
 
   return (
@@ -11,7 +21,7 @@ const NftCard = ({ collection }) => {
       <a className="nft-card max-w-sm rounded overflow-hidden shadow-lg bg-white inline-block cursor-pointer">
         <img
           className="w-full h-48 object-cover"
-          src="/image/Space.jpg" // Remplacez par collection.image si vous avez une image dans votre collection
+          src={collection.image || "/image/Space.jpg"} // Remplacez par collection.image si vous avez une image dans votre collection
           alt={collection.name}
         />
         <div className="p-4">

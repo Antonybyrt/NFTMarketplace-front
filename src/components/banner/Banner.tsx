@@ -1,10 +1,15 @@
-// src/components/Banner/Banner.jsx
+// src/components/Banner/Banner.tsx
 "use client";
 
 import React, { useState, useEffect } from 'react';
 import './Banner.css';
 
-const Banner = ({ collectionName, creatorName }) => {
+interface BannerProps {
+  collectionName: string;
+  creatorName: string;
+}
+
+const Banner: React.FC<BannerProps> = ({ collectionName, creatorName }) => {
   const images = ['/image/spicyDonut.png', '/image/logo.png'];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
