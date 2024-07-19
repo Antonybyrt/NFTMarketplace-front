@@ -15,7 +15,7 @@
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  background-color: white;
+  background-color: rgb(37, 37, 37);
 }
 
 .nft-item:hover {
@@ -34,5 +34,5 @@
 
 .nft-title {
   font-size: 1rem; /* Réduire la taille de la police */
-  color: #333;
+  color: #ffffff;
 }
