@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { type BaseError, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import { abi } from '../../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json';
 import { ErrorService } from '@/service/error.service';
 import { NFTService } from '@/service/nft.service';
 import { INFT } from '@/models/nft.model';
 import { ServiceErrorCode } from '@/service/service.result';
+import { MetaMaskService } from '@/service/metaMask.service';
 
 const NFT_FACTORY_ADDRESS = '0x6b81dbEAD4Ab9B6870165A14B07F890A3db64389'; // Remplacez par l'adresse de votre contrat déployé
 
@@ -15,7 +15,8 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
   const { data: hash, isPending, error, writeContract } = useWriteContract();
   const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash });
 
-  const [formData, setFormData] = React.useState<{ name: string, symbol: string } | null>(null);
+  const [formData, setFormData] = useState<{ name: string, symbol: string } | null>(null);
+  const [createdNFT, setCreatedNFT] = useState(false);
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -32,7 +33,9 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
   }
 
   useEffect(() => {
-    console.log('collection :',collection,'user :', user)
+    if(createdNFT) {
+      return;
+    }
     if (isConfirmed && formData) {
       const createNFT = async () => {
         const newNFT: INFT = {
@@ -51,6 +54,8 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
         }
       };
       createNFT();
+      //MetaMaskService.addNFTToMetaMask(NFT_FACTORY_ADDRESS, 9)
+      setCreatedNFT(true);
     } else if (error) {
       ErrorService.errorMessage('Failed to create', (error as BaseError).message);
     }
