@@ -16,6 +16,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
   background-color: rgb(37, 37, 37);
+  position: relative; /* Ajouté pour positionner le bouton "Acheter" */
+  padding-bottom: 2.5rem; /* Ajouté pour faire de la place pour le bouton */
 }
 
 .nft-item:hover {
@@ -35,4 +37,24 @@
 .nft-title {
   font-size: 1rem; /* Réduire la taille de la police */
   color: #ffffff;
+}
+
+/* Styles pour le bouton "Acheter" */
+.buy-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 0 0 8px 8px; /* Arrondir les coins inférieurs */
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nft-item:hover .buy-button {
+  opacity: 1;
 }

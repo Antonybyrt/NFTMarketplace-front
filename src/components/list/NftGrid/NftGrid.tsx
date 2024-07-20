@@ -18,6 +18,7 @@ const NftGrid: React.FC<NftGridProps> = ({ nfts }) => {
             <h2 className="nft-title">{nft.name}</h2>
             {nft.description && <p className="nft-description">{nft.description}</p>}
           </div>
+          <button className="buy-button">Acheter</button>
         </div>
       ))}
     </div>
