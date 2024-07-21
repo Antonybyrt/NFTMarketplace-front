@@ -12,11 +12,11 @@ const config: HardhatUserConfig = {
       url: "http://127.0.0.1:8545", // Nouvelle URL de RPC pour le réseau local
       chainId: 31337,
     },
-    /*sepolia: {
-      url: `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      accounts: [`0x${process.env.PRIVATE_KEY}`],
+    sepolia: {
+      url: 'https://eth-sepolia.g.alchemy.com/v2/iKVrGJ4H4ecBFESYg3F6rOmnCnrfSEaV',
+      accounts: [`0x68cee2f097c10a638bc332616274af08bedcefce1fb0ba51fe86bc81826047f7`]
     },
-    mainnet: {
+    /*mainnet: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
       accounts: [`0x${process.env.PRIVATE_KEY}`],
     },*/

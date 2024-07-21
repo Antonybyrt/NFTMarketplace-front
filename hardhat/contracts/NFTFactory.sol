@@ -15,7 +15,6 @@ contract NFTFactory {
     Collection[] public collections;
 
     event CollectionCreated(address collectionAddress, string name, string symbol);
-    event NFTAdded(address collectionAddress, string name, string symbol);
     event Debug(string message);
 
     struct Listed {
@@ -58,8 +57,6 @@ contract NFTFactory {
 
         NFT nftInstance = NFT(collectionAddress);
         nftInstance.mint(msg.sender, name, symbol);
-
-        emit NFTAdded(collectionAddress, name, symbol);
     }
 
     function getCollections() public view returns (Collection[] memory) {

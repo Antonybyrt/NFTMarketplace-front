@@ -28,8 +28,6 @@ export type { Math } from "./@openzeppelin/contracts/utils/math/Math";
 export { Math__factory } from "./factories/@openzeppelin/contracts/utils/math/Math__factory";
 export type { Strings } from "./@openzeppelin/contracts/utils/Strings";
 export { Strings__factory } from "./factories/@openzeppelin/contracts/utils/Strings__factory";
-export type { Lock } from "./contracts/Lock";
-export { Lock__factory } from "./factories/contracts/Lock__factory";
 export type { NFT } from "./contracts/NFT";
 export { NFT__factory } from "./factories/contracts/NFT__factory";
 export type { NFTFactory } from "./contracts/NFTFactory";

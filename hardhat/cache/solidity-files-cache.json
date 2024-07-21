@@ -1,45 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/contracts/Lock.sol": {
-      "lastModificationDate": 1720020224281,
-      "contentHash": "1355eb252875a88cbda4218ba4c2a268",
-      "sourceName": "contracts/Lock.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.17"
-      ],
-      "artifacts": [
-        "Lock"
-      ]
-    },
     "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/contracts/NFT.sol": {
-      "lastModificationDate": 1720729559952,
-      "contentHash": "d316166eaea5d2910b79289329fd9044",
+      "lastModificationDate": 1721304536545,
+      "contentHash": "b7878805c199701a6df9a5a6bb20f88b",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -491,8 +455,8 @@
       ]
     },
     "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/contracts/NFTFactory.sol": {
-      "lastModificationDate": 1720730167385,
-      "contentHash": "02d067d7186e7cf5604b8a0eb96a7ad1",
+      "lastModificationDate": 1721304365695,
+      "contentHash": "2de3e0b64258191281b82c418dc9962e",
       "sourceName": "contracts/NFTFactory.sol",
       "solcConfig": {
         "version": "0.8.24",

@@ -60,7 +60,7 @@ export interface NFTFactoryInterface extends Interface {
   ): FunctionFragment;
 
   getEvent(
-    nameOrSignatureOrTopic: "CollectionCreated" | "Debug" | "NFTAdded"
+    nameOrSignatureOrTopic: "CollectionCreated" | "Debug"
   ): EventFragment;
 
   encodeFunctionData(
@@ -155,28 +155,6 @@ export namespace DebugEvent {
   export type OutputTuple = [message: string];
   export interface OutputObject {
     message: string;
-  }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
-}
-
-export namespace NFTAddedEvent {
-  export type InputTuple = [
-    collectionAddress: AddressLike,
-    name: string,
-    symbol: string
-  ];
-  export type OutputTuple = [
-    collectionAddress: string,
-    name: string,
-    symbol: string
-  ];
-  export interface OutputObject {
-    collectionAddress: string;
-    name: string;
-    symbol: string;
   }
   export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
   export type Filter = TypedDeferredTopicFilter<Event>;
@@ -378,13 +356,6 @@ export interface NFTFactory extends BaseContract {
     DebugEvent.OutputTuple,
     DebugEvent.OutputObject
   >;
-  getEvent(
-    key: "NFTAdded"
-  ): TypedContractEvent<
-    NFTAddedEvent.InputTuple,
-    NFTAddedEvent.OutputTuple,
-    NFTAddedEvent.OutputObject
-  >;
 
   filters: {
     "CollectionCreated(address,string,string)": TypedContractEvent<
@@ -407,17 +378,6 @@ export interface NFTFactory extends BaseContract {
       DebugEvent.InputTuple,
       DebugEvent.OutputTuple,
       DebugEvent.OutputObject
-    >;
-
-    "NFTAdded(address,string,string)": TypedContractEvent<
-      NFTAddedEvent.InputTuple,
-      NFTAddedEvent.OutputTuple,
-      NFTAddedEvent.OutputObject
-    >;
-    NFTAdded: TypedContractEvent<
-      NFTAddedEvent.InputTuple,
-      NFTAddedEvent.OutputTuple,
-      NFTAddedEvent.OutputObject
     >;
   };
 }
