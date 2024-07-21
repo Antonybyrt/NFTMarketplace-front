@@ -1,4 +1,3 @@
-// src/components/NftCard/NftCard.tsx
 import React from 'react';
 import Link from 'next/link';
 import './NftCard.css';

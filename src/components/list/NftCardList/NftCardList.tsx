@@ -1,4 +1,3 @@
-// src/components/NftCardList/NftCardList.tsx
 import React, { useEffect, useState, useRef } from "react";
 import NftCard from "../NftCard/NftCard";
 import './NftCardList.css';

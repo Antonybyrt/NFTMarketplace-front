@@ -1,12 +1,11 @@
-/* src/components/NftCard/NftCard.css */
 .nft-card {
-  max-width: 20rem; /* ou la largeur que vous préférez pour les cartes */
-  text-decoration: none; /* Assurez-vous que le texte n'est pas souligné */
+  max-width: 20rem; 
+  text-decoration: none; 
 }
 
 .nft-card img {
   width: 100%;
-  height: 12rem; /* ajustez la hauteur selon vos besoins */
+  height: 12rem; 
   object-fit: cover;
 }
 
@@ -23,7 +22,7 @@
 }
 
 .nft-card .mb-4 {
-  margin-bottom: 1rem; /* Utilisation de mb-4 pour espacer le nom et le symbole */
+  margin-bottom: 1rem; 
 }
 
 .nft-card .text-gray-700 {
@@ -39,11 +38,11 @@
 }
 
 .nft-card p {
-  word-wrap: break-word; /* Permet le retour à la ligne pour les mots longs */
-  white-space: pre-wrap; /* Permet d'afficher les retours à la ligne et de maintenir les espaces */
+  word-wrap: break-word; 
+  white-space: pre-wrap; 
 }
 
-/* Ajoutez ces règles pour enlever le soulignement et la couleur des liens */
+
 .nft-card a {
   text-decoration: none !important;
   color: inherit !important;
