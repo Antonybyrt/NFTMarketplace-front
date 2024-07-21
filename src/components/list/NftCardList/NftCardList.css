@@ -1,0 +1,55 @@
+/* components/NftCardList/NftCardList.css */
+.nft-card-list-container {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  
+  .nft-card-list {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 1rem; /* Espace en bas pour ne pas couper le contenu */
+  }
+  
+  .nft-card-list > * {
+    flex: 0 0 auto;
+    margin-right: 2rem;
+  }
+  
+  .scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  .scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .scroll-button.left {
+    left: 0;
+  }
+  
+  .scroll-button.right {
+    right: 0;
+  }
+  
+  .scroll-button svg {
+    width: 24px;
+    height: 24px;
+  }
+  
