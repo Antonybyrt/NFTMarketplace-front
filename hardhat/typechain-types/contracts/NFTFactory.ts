@@ -65,7 +65,7 @@ export interface NFTFactoryInterface extends Interface {
 
   encodeFunctionData(
     functionFragment: "addNFTToCollection",
-    values: [AddressLike, string, string]
+    values: [AddressLike, string, string, string]
   ): string;
   encodeFunctionData(functionFragment: "buy", values: [BigNumberish]): string;
   encodeFunctionData(
@@ -206,7 +206,12 @@ export interface NFTFactory extends BaseContract {
   ): Promise<this>;
 
   addNFTToCollection: TypedContractMethod<
-    [collectionAddress: AddressLike, name: string, symbol: string],
+    [
+      collectionAddress: AddressLike,
+      name: string,
+      symbol: string,
+      tokenURI: string
+    ],
     [void],
     "nonpayable"
   >;
@@ -279,7 +284,12 @@ export interface NFTFactory extends BaseContract {
   getFunction(
     nameOrSignature: "addNFTToCollection"
   ): TypedContractMethod<
-    [collectionAddress: AddressLike, name: string, symbol: string],
+    [
+      collectionAddress: AddressLike,
+      name: string,
+      symbol: string,
+      tokenURI: string
+    ],
     [void],
     "nonpayable"
   >;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { type BaseError, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
+import { type BaseError, useWaitForTransactionReceipt, useWriteContract, useWatchContractEvent } from 'wagmi';
 import Modal from 'react-bootstrap/Modal';
 import { abi } from '../../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json';
 import { ErrorService } from '@/service/error.service';
@@ -9,7 +9,8 @@ import { INFT } from '@/models/nft.model';
 import { ServiceErrorCode } from '@/service/service.result';
 import { MetaMaskService } from '@/service/metaMask.service';
 
-const NFT_FACTORY_ADDRESS = '0x6b81dbEAD4Ab9B6870165A14B07F890A3db64389'; // Remplacez par l'adresse de votre contrat déployé
+const NFT_FACTORY_ADDRESS = '0x7c7e96493C7357c8de2b769fFd591Be12cE66885'; // Remplacez par l'adresse de votre contrat déployé
+const NFT_ADDRESS = '0x83f16a6118f7856d469E2dfe6b71599703BC939A';
 
 export function MintNFTModal({ show, handleClose, collection, user }: any) {
   const { data: hash, isPending, error, writeContract } = useWriteContract();
@@ -28,7 +29,7 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
       address: NFT_FACTORY_ADDRESS,
       abi,
       functionName: 'addNFTToCollection',
-      args: [collection.address, String(name), String(symbol)],
+      args: [collection.address, String(name), String(symbol), 1],
     });
   }
 
@@ -60,6 +61,15 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
       ErrorService.errorMessage('Failed to create', (error as BaseError).message);
     }
   }, [isConfirmed, formData, collection, user, hash, error]);
+
+  useWatchContractEvent({
+    address: NFT_ADDRESS,
+    abi,
+    eventName: 'NFTAdded',
+    listener: async (event) => {
+      console.log(event)
+    },
+  });
 
   return (
     <Modal show={show} onHide={handleClose} className="text-white">
