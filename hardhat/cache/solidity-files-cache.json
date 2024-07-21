@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/contracts/NFT.sol": {
-      "lastModificationDate": 1721304536545,
-      "contentHash": "b7878805c199701a6df9a5a6bb20f88b",
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\contracts\\NFT.sol": {
+      "lastModificationDate": 1721596675059,
+      "contentHash": "383106bced27e104c438e73b19114548",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -39,8 +39,8 @@
         "NFT"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1720020314926,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
+      "lastModificationDate": 1721480733723,
       "contentHash": "1e64e2ad597dc5b2dae11346502baad4",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
@@ -83,8 +83,8 @@
         "ERC721"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1720020314754,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1721480733519,
       "contentHash": "67bfbc07588eb8683b3fd8f6f909563e",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -119,8 +119,46 @@
         "Context"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1720020315079,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721.sol": {
+      "lastModificationDate": 1721480733946,
+      "contentHash": "5df8fdb527e563085847cad29e3c5f2e",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC721"
+      ]
+    },
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
+      "lastModificationDate": 1721480734018,
       "contentHash": "ba57ff4ddf1d9cae9d2009792795b7f6",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -158,46 +196,8 @@
         "Strings"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
-      "lastModificationDate": 1720020315037,
-      "contentHash": "5df8fdb527e563085847cad29e3c5f2e",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../utils/introspection/IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC721"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
-      "lastModificationDate": 1720020315043,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
+      "lastModificationDate": 1721480733959,
       "contentHash": "fc8a9841f4bdd6329c26a00d5e75f4b3",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
@@ -232,8 +232,8 @@
         "IERC721Receiver"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
-      "lastModificationDate": 1720020314768,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\interfaces\\draft-IERC6093.sol": {
+      "lastModificationDate": 1721480733552,
       "contentHash": "4aefc698f77ecbace7f401257dfe182d",
       "sourceName": "@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
       "solcConfig": {
@@ -270,8 +270,8 @@
         "IERC721Errors"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1720020314847,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
+      "lastModificationDate": 1721480733632,
       "contentHash": "6a55c353946e471d9792965d06208295",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -308,8 +308,8 @@
         "ERC165"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-      "lastModificationDate": 1720020315040,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\IERC721Metadata.sol": {
+      "lastModificationDate": 1721480733955,
       "contentHash": "12c206f185cb951213799561fdcaa40d",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
@@ -346,80 +346,8 @@
         "IERC721Metadata"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol": {
-      "lastModificationDate": 1720020315078,
-      "contentHash": "b6c6bdc7aaca4fe5b680760a72e09d3e",
-      "sourceName": "@openzeppelin/contracts/utils/math/SignedMath.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "SignedMath"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/utils/math/Math.sol": {
-      "lastModificationDate": 1720020315059,
-      "contentHash": "718fa8ba0ff269c92e364c1429d9de57",
-      "sourceName": "@openzeppelin/contracts/utils/math/Math.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "Math"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1720020315008,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
+      "lastModificationDate": 1721480733889,
       "contentHash": "de0163561b417b800d01749cbbe2147e",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -454,427 +382,8 @@
         "IERC165"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicy-front/NFTMarketplace-front/hardhat/contracts/NFTFactory.sol": {
-      "lastModificationDate": 1721304365695,
-      "contentHash": "2de3e0b64258191281b82c418dc9962e",
-      "sourceName": "contracts/NFTFactory.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./NFT.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.24"
-      ],
-      "artifacts": [
-        "NFTFactory"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/contracts/NFT.sol": {
-      "lastModificationDate": 1721414284429,
-      "contentHash": "bd2c23c36b2206a18e402a8313844151",
-      "sourceName": "contracts/NFT.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.24"
-      ],
-      "artifacts": [
-        "NFT"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1721409560669,
-      "contentHash": "1e64e2ad597dc5b2dae11346502baad4",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC721.sol",
-        "./IERC721Receiver.sol",
-        "./extensions/IERC721Metadata.sol",
-        "../../utils/Context.sol",
-        "../../utils/Strings.sol",
-        "../../utils/introspection/ERC165.sol",
-        "../../interfaces/draft-IERC6093.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "ERC721"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
-      "lastModificationDate": 1721409560773,
-      "contentHash": "fc8a9841f4bdd6329c26a00d5e75f4b3",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC721Receiver"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1721409560807,
-      "contentHash": "ba57ff4ddf1d9cae9d2009792795b7f6",
-      "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./math/Math.sol",
-        "./math/SignedMath.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "Strings"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
-      "lastModificationDate": 1721409560768,
-      "contentHash": "5df8fdb527e563085847cad29e3c5f2e",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../utils/introspection/IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC721"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1721409560580,
-      "contentHash": "67bfbc07588eb8683b3fd8f6f909563e",
-      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "Context"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
-      "lastModificationDate": 1721409560586,
-      "contentHash": "4aefc698f77ecbace7f401257dfe182d",
-      "sourceName": "@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC1155Errors",
-        "IERC20Errors",
-        "IERC721Errors"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1721409560618,
-      "contentHash": "6a55c353946e471d9792965d06208295",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "ERC165"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-      "lastModificationDate": 1721409560771,
-      "contentHash": "12c206f185cb951213799561fdcaa40d",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../IERC721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC721Metadata"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol": {
-      "lastModificationDate": 1721409560805,
-      "contentHash": "b6c6bdc7aaca4fe5b680760a72e09d3e",
-      "sourceName": "@openzeppelin/contracts/utils/math/SignedMath.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "SignedMath"
-      ]
-    },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/utils/math/Math.sol": {
-      "lastModificationDate": 1721409560781,
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\utils\\math\\Math.sol": {
+      "lastModificationDate": 1721480733978,
       "contentHash": "718fa8ba0ff269c92e364c1429d9de57",
       "sourceName": "@openzeppelin/contracts/utils/math/Math.sol",
       "solcConfig": {
@@ -909,10 +418,10 @@
         "Math"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1721409560751,
-      "contentHash": "de0163561b417b800d01749cbbe2147e",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\node_modules\\@openzeppelin\\contracts\\utils\\math\\SignedMath.sol": {
+      "lastModificationDate": 1721480734014,
+      "contentHash": "b6c6bdc7aaca4fe5b680760a72e09d3e",
+      "sourceName": "@openzeppelin/contracts/utils/math/SignedMath.sol",
       "solcConfig": {
         "version": "0.8.24",
         "settings": {
@@ -942,12 +451,12 @@
         "^0.8.20"
       ],
       "artifacts": [
-        "IERC165"
+        "SignedMath"
       ]
     },
-    "/Users/antony_loussararian/Documents/Documents - MacBook Pro de Antony/Cours/Projets-Pédagogiques/ESGI3/WEB3/spicyFront/hardhat/contracts/NFTFactory.sol": {
-      "lastModificationDate": 1721414301778,
-      "contentHash": "d00071cd046b858e0e49139ad540be10",
+    "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\hardhat\\contracts\\NFTFactory.sol": {
+      "lastModificationDate": 1721596675059,
+      "contentHash": "2305834077f5d58cd2129d60fa196dc6",
       "sourceName": "contracts/NFTFactory.sol",
       "solcConfig": {
         "version": "0.8.24",
