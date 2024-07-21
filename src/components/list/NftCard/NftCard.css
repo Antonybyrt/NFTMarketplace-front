@@ -1,4 +1,4 @@
-/* components/NftCard/NftCard.css */
+/* src/components/NftCard/NftCard.css */
 .nft-card {
   max-width: 20rem; /* ou la largeur que vous préférez pour les cartes */
   text-decoration: none; /* Assurez-vous que le texte n'est pas souligné */
@@ -36,6 +36,11 @@
 
 .nft-card .font-semibold {
   font-weight: 600;
+}
+
+.nft-card p {
+  word-wrap: break-word; /* Permet le retour à la ligne pour les mots longs */
+  white-space: pre-wrap; /* Permet d'afficher les retours à la ligne et de maintenir les espaces */
 }
 
 /* Ajoutez ces règles pour enlever le soulignement et la couleur des liens */
