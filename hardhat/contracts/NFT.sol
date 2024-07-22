@@ -7,7 +7,7 @@ contract NFT is ERC721 {
     struct NFTData {
         string name;
         string symbol;
-        uint256 tokenURI;
+        uint256 tokenId;
     }
 
     NFTData[] public nfts;
