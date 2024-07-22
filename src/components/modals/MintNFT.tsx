@@ -9,8 +9,7 @@ import { INFT } from '@/models/nft.model';
 import { ServiceErrorCode } from '@/service/service.result';
 import { MetaMaskService } from '@/service/metaMask.service';
 
-const NFT_FACTORY_ADDRESS = '0x7c7e96493C7357c8de2b769fFd591Be12cE66885'; // Remplacez par l'adresse de votre contrat déployé
-const NFT_ADDRESS = '0x83f16a6118f7856d469E2dfe6b71599703BC939A';
+const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Remplacez par l'adresse de votre contrat déployé
 
 export function MintNFTModal({ show, handleClose, collection, user }: any) {
   const { data: hash, isPending, error, writeContract } = useWriteContract();
