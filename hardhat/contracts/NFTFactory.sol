@@ -16,6 +16,7 @@ contract NFTFactory {
 
     event CollectionCreated(address collectionAddress, string name, string symbol);
     event Debug(string message);
+    event NFTMinted(address collectionAddress, uint256 tokenId, string name, string symbol, address owner);
 
     struct Listed {
         uint256 price;
@@ -45,7 +46,7 @@ contract NFTFactory {
         emit Debug("createCollection finished");
     }
 
-    function addNFTToCollection(address collectionAddress, string memory name, string memory symbol, string memory tokenURI) public {
+    function addNFTToCollection(address collectionAddress, string memory name, string memory symbol) public {
         bool found = false;
         for (uint256 i = 0; i < collections.length; i++) {
             if (collections[i].collectionAddress == collectionAddress && collections[i].owner == msg.sender) {
@@ -56,7 +57,9 @@ contract NFTFactory {
         require(found, "Collection not found or not owned by sender");
 
         NFT nftInstance = NFT(collectionAddress);
-        nftInstance.mint(msg.sender, name, symbol, tokenURI);
+        uint256 newTokenId = nftInstance.mint(msg.sender, name, symbol);
+
+        emit NFTMinted(collectionAddress, newTokenId, name, symbol, msg.sender);
     }
 
     function getCollections() public view returns (Collection[] memory) {
