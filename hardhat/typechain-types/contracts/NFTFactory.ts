@@ -60,12 +60,12 @@ export interface NFTFactoryInterface extends Interface {
   ): FunctionFragment;
 
   getEvent(
-    nameOrSignatureOrTopic: "CollectionCreated" | "Debug"
+    nameOrSignatureOrTopic: "CollectionCreated" | "Debug" | "NFTMinted"
   ): EventFragment;
 
   encodeFunctionData(
     functionFragment: "addNFTToCollection",
-    values: [AddressLike, string, string, string]
+    values: [AddressLike, string, string]
   ): string;
   encodeFunctionData(functionFragment: "buy", values: [BigNumberish]): string;
   encodeFunctionData(
@@ -162,6 +162,34 @@ export namespace DebugEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
+export namespace NFTMintedEvent {
+  export type InputTuple = [
+    collectionAddress: AddressLike,
+    tokenId: BigNumberish,
+    name: string,
+    symbol: string,
+    owner: AddressLike
+  ];
+  export type OutputTuple = [
+    collectionAddress: string,
+    tokenId: bigint,
+    name: string,
+    symbol: string,
+    owner: string
+  ];
+  export interface OutputObject {
+    collectionAddress: string;
+    tokenId: bigint;
+    name: string;
+    symbol: string;
+    owner: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
 export interface NFTFactory extends BaseContract {
   connect(runner?: ContractRunner | null): NFTFactory;
   waitForDeployment(): Promise<this>;
@@ -206,12 +234,7 @@ export interface NFTFactory extends BaseContract {
   ): Promise<this>;
 
   addNFTToCollection: TypedContractMethod<
-    [
-      collectionAddress: AddressLike,
-      name: string,
-      symbol: string,
-      tokenURI: string
-    ],
+    [collectionAddress: AddressLike, name: string, symbol: string],
     [void],
     "nonpayable"
   >;
@@ -284,12 +307,7 @@ export interface NFTFactory extends BaseContract {
   getFunction(
     nameOrSignature: "addNFTToCollection"
   ): TypedContractMethod<
-    [
-      collectionAddress: AddressLike,
-      name: string,
-      symbol: string,
-      tokenURI: string
-    ],
+    [collectionAddress: AddressLike, name: string, symbol: string],
     [void],
     "nonpayable"
   >;
@@ -366,6 +384,13 @@ export interface NFTFactory extends BaseContract {
     DebugEvent.OutputTuple,
     DebugEvent.OutputObject
   >;
+  getEvent(
+    key: "NFTMinted"
+  ): TypedContractEvent<
+    NFTMintedEvent.InputTuple,
+    NFTMintedEvent.OutputTuple,
+    NFTMintedEvent.OutputObject
+  >;
 
   filters: {
     "CollectionCreated(address,string,string)": TypedContractEvent<
@@ -388,6 +413,17 @@ export interface NFTFactory extends BaseContract {
       DebugEvent.InputTuple,
       DebugEvent.OutputTuple,
       DebugEvent.OutputObject
+    >;
+
+    "NFTMinted(address,uint256,string,string,address)": TypedContractEvent<
+      NFTMintedEvent.InputTuple,
+      NFTMintedEvent.OutputTuple,
+      NFTMintedEvent.OutputObject
+    >;
+    NFTMinted: TypedContractEvent<
+      NFTMintedEvent.InputTuple,
+      NFTMintedEvent.OutputTuple,
+      NFTMintedEvent.OutputObject
     >;
   };
 }
