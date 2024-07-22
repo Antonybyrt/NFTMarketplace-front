@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2ab429cc-9988-4979-a12f-2cde75b31b15" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC1155Errors.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC1155Errors.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC1155Errors.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC1155Errors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC20Errors.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC20Errors.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC20Errors.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC20Errors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC721Errors.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC721Errors.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC721Errors.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC721Errors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/ERC721.sol/ERC721.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/ERC721.sol/ERC721.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/ERC721.sol/ERC721.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/ERC721.sol/ERC721.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721.sol/IERC721.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721.sol/IERC721.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721.sol/IERC721.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721.sol/IERC721.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol/IERC721Receiver.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol/IERC721Receiver.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol/IERC721Receiver.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol/IERC721Receiver.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol/IERC721Metadata.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol/IERC721Metadata.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol/IERC721Metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol/IERC721Metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/Context.sol/Context.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/Context.sol/Context.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/Context.sol/Context.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/Context.sol/Context.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/Strings.sol/Strings.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/Strings.sol/Strings.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/Strings.sol/Strings.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/Strings.sol/Strings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/introspection/IERC165.sol/IERC165.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/introspection/IERC165.sol/IERC165.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/introspection/IERC165.sol/IERC165.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/introspection/IERC165.sol/IERC165.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/math/Math.sol/Math.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/math/Math.sol/Math.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/math/Math.sol/Math.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/math/Math.sol/Math.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/math/SignedMath.sol/SignedMath.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/math/SignedMath.sol/SignedMath.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/math/SignedMath.sol/SignedMath.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/@openzeppelin/contracts/utils/math/SignedMath.sol/SignedMath.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/build-info/6cf0a387418834e9cae3acbc0e6b5b20.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/build-info/ecfb32cd6f600b48091ce944a5906e02.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/contracts/NFT.sol/NFT.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/contracts/NFT.sol/NFT.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/contracts/NFT.sol/NFT.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/contracts/NFT.sol/NFT.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.dbg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/cache/solidity-files-cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/cache/solidity-files-cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/test/FactoryNFT.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/test/FactoryNFT.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/test/Lock.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC1155Errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC1155Errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC20Errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC20Errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC721Errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC721Errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/interfaces/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/ERC721.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/ERC721.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/IERC721.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/IERC721.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/IERC721Receiver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/IERC721Receiver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/extensions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/extensions/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/ERC721/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/token/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/Strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/Strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/introspection/ERC165.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/introspection/ERC165.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/introspection/IERC165.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/introspection/IERC165.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/introspection/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/introspection/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/math/Math.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/math/Math.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/math/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/contracts/utils/math/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/@openzeppelin/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/common.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/contracts/NFT.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/contracts/NFT.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/contracts/NFTFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/contracts/NFTFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/contracts/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/contracts/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC1155Errors__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC1155Errors__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC20Errors__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC20Errors__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC721Errors__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/IERC721Errors__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/draft-IERC6093.sol/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/interfaces/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/ERC721__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/ERC721__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/IERC721Receiver__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/IERC721Receiver__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/IERC721__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/IERC721__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/extensions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/extensions/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/ERC721/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/token/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/Strings__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/Strings__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/introspection/ERC165__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/introspection/ERC165__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/introspection/IERC165__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/introspection/IERC165__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/introspection/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/introspection/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/math/Math__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/math/Math__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/math/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/contracts/utils/math/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/@openzeppelin/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/contracts/NFTFactory__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/contracts/NFTFactory__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/contracts/NFT__factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/contracts/NFT__factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/contracts/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/contracts/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/factories/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/factories/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/hardhat.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/hardhat.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hardhat/typechain-types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat/typechain-types/index.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2jVeNq5nx1FHxGKLnhROQUMgJV7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "test-unitaire",
+    "last_opened_file_path": "C:/Users/jojob/OneDrive/Documents/Bachelor/ProjetAnnuel/NFTMarketplace-front",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\jojob\\OneDrive\\Documents\\Bachelor\\ProjetAnnuel\\NFTMarketplace-front\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ab429cc-9988-4979-a12f-2cde75b31b15" name="Changes" comment="" />
+      <created>1721476633469</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721476633469</updated>
+      <workItem from="1721476634609" duration="2087000" />
+      <workItem from="1721487840903" duration="49000" />
+      <workItem from="1721487899356" duration="213000" />
+      <workItem from="1721585690203" duration="11805000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

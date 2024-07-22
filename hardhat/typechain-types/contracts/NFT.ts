@@ -71,7 +71,7 @@ export interface NFTInterface extends Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "mint",
-    values: [AddressLike, string, string]
+    values: [AddressLike, string, string, string]
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "nfts", values: [BigNumberish]): string;
@@ -188,13 +188,20 @@ export namespace NFTAddedEvent {
   export type InputTuple = [
     tokenId: BigNumberish,
     name: string,
-    symbol: string
+    symbol: string,
+    tokenURI: string
   ];
-  export type OutputTuple = [tokenId: bigint, name: string, symbol: string];
+  export type OutputTuple = [
+    tokenId: bigint,
+    name: string,
+    symbol: string,
+    tokenURI: string
+  ];
   export interface OutputObject {
     tokenId: bigint;
     name: string;
     symbol: string;
+    tokenURI: string;
   }
   export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
   export type Filter = TypedDeferredTopicFilter<Event>;
@@ -286,7 +293,7 @@ export interface NFT extends BaseContract {
   >;
 
   mint: TypedContractMethod<
-    [to: AddressLike, name: string, symbol: string],
+    [to: AddressLike, name: string, symbol: string, tokenURI: string],
     [void],
     "nonpayable"
   >;
@@ -296,9 +303,10 @@ export interface NFT extends BaseContract {
   nfts: TypedContractMethod<
     [arg0: BigNumberish],
     [
-      [string, string, bigint] & {
+      [string, string, string, bigint] & {
         name: string;
         symbol: string;
+        tokenURI: string;
         tokenId: bigint;
       }
     ],
@@ -380,7 +388,7 @@ export interface NFT extends BaseContract {
   getFunction(
     nameOrSignature: "mint"
   ): TypedContractMethod<
-    [to: AddressLike, name: string, symbol: string],
+    [to: AddressLike, name: string, symbol: string, tokenURI: string],
     [void],
     "nonpayable"
   >;
@@ -392,9 +400,10 @@ export interface NFT extends BaseContract {
   ): TypedContractMethod<
     [arg0: BigNumberish],
     [
-      [string, string, bigint] & {
+      [string, string, string, bigint] & {
         name: string;
         symbol: string;
+        tokenURI: string;
         tokenId: bigint;
       }
     ],
@@ -498,7 +507,7 @@ export interface NFT extends BaseContract {
       ApprovalForAllEvent.OutputObject
     >;
 
-    "NFTAdded(uint256,string,string)": TypedContractEvent<
+    "NFTAdded(uint256,string,string,string)": TypedContractEvent<
       NFTAddedEvent.InputTuple,
       NFTAddedEvent.OutputTuple,
       NFTAddedEvent.OutputObject
