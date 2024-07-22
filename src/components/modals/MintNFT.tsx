@@ -10,6 +10,7 @@ import { ServiceErrorCode } from '@/service/service.result';
 import { MetaMaskService } from '@/service/metaMask.service';
 
 const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Remplacez par l'adresse de votre contrat déployé
+const NFT_ADDRESS = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512';
 
 export function MintNFTModal({ show, handleClose, collection, user }: any) {
   const { data: hash, isPending, error, writeContract } = useWriteContract();
@@ -54,7 +55,7 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
         }
       };
       createNFT();
-      //MetaMaskService.addNFTToMetaMask(NFT_FACTORY_ADDRESS, 9)
+      MetaMaskService.addNFTToMetaMask(NFT_FACTORY_ADDRESS, 1)
       setCreatedNFT(true);
     } else if (error) {
       ErrorService.errorMessage('Failed to create', (error as BaseError).message);
