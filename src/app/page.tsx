@@ -2,7 +2,7 @@
 import { CreateCollection } from '@/components/CreateCollection';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import UploadImage from '@/components/upload/upload';
+import GenerateImageButton from '@/components/generateNFT/GenerateImageButton';
 
 function Page() {
   return (
@@ -10,7 +10,7 @@ function Page() {
       <div className="background-container">
         <div className="overlay"></div>
         <div className="content">
-          <UploadImage/>
+          <GenerateImageButton/>
         </div>
       </div>
     </div>
