@@ -9,15 +9,36 @@ import { INFT } from '@/models/nft.model';
 import { ServiceErrorCode } from '@/service/service.result';
 import { MetaMaskService } from '@/service/metaMask.service';
 
-const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Remplacez par l'adresse de votre contrat déployé
-const NFT_ADDRESS = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512';
+const NFT_FACTORY_ADDRESS = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'; // Remplacez par l'adresse de votre contrat déployé
+const NFT_ADDRESS = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
 
 export function MintNFTModal({ show, handleClose, collection, user }: any) {
   const { data: hash, isPending, error, writeContract } = useWriteContract();
-  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash });
+  const { isLoading: isConfirming, isSuccess: isConfirmed} = useWaitForTransactionReceipt({ hash });
 
   const [formData, setFormData] = useState<{ name: string, symbol: string } | null>(null);
   const [createdNFT, setCreatedNFT] = useState(false);
+
+  useWatchContractEvent({
+    address: NFT_FACTORY_ADDRESS,
+    abi,
+    eventName: 'NFTMinted',
+    onLogs(logs) {
+      if(createdNFT) {
+        console.log('Event logs:', logs);
+        logs.forEach(log => {
+            const { args } = log;
+            console.log('last :',args?.tokenId);
+            const tokenId = Number(args?.tokenId);
+            console.log('new :', tokenId);
+
+            saveNFTToWeb2(tokenId);
+            MetaMaskService.addNFTToMetaMask(NFT_FACTORY_ADDRESS, tokenId);
+            setCreatedNFT(false);
+        });
+      }
+    },
+});
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,47 +50,41 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
       address: NFT_FACTORY_ADDRESS,
       abi,
       functionName: 'addNFTToCollection',
-      args: [collection.address, String(name), String(symbol), 1],
+      args: [collection.address, String(name), String(symbol)],
     });
+
+    if(isConfirmed) {
+      setCreatedNFT(true);
+    }
+
   }
 
-  useEffect(() => {
-    if(createdNFT) {
+  async function saveNFTToWeb2(tokenId: number) {
+    if (!user) {
+      console.error('User not found');
       return;
     }
-    if (isConfirmed && formData) {
-      const createNFT = async () => {
-        const newNFT: INFT = {
-          name: formData.name,
-          symbol: formData.symbol,
-          user: user,
-          pack: collection
-        };
+    if (formData) {
+      const NFTData: INFT = {
+        name: formData.name,
+        symbol: formData.symbol,
+        tokenId: tokenId,
+        user: user,
+        pack: collection
+      }
 
-        const result = await NFTService.createNFT(newNFT);
-
+      try {
+        const result = await NFTService.createNFT(NFTData);
         if (result.errorCode === ServiceErrorCode.success) {
-          ErrorService.successMessage('NFT created', 'hash :' + hash);
+          ErrorService.successMessage('NFT minted', 'hash :' + hash);
         } else {
-          ErrorService.errorMessage('Failed to create', 'Error creating NFT in database');
+          ErrorService.errorMessage('Error', 'Failed to mint NFT');
         }
-      };
-      createNFT();
-      MetaMaskService.addNFTToMetaMask(NFT_FACTORY_ADDRESS, 1)
-      setCreatedNFT(true);
-    } else if (error) {
-      ErrorService.errorMessage('Failed to create', (error as BaseError).message);
+      } catch (error) {
+        ErrorService.errorMessage('Failed to mint NFT', 'Error :' + error);
+      }
     }
-  }, [isConfirmed, formData, collection, user, hash, error]);
-
-  useWatchContractEvent({
-    address: NFT_ADDRESS,
-    abi,
-    eventName: 'NFTAdded',
-    listener: async (event) => {
-      console.log(event)
-    },
-  });
+  }
 
   return (
     <Modal show={show} onHide={handleClose} className="text-white">

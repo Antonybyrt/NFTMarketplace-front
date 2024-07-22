@@ -2,6 +2,7 @@
 export interface INFT {
     name: string;
     symbol: string;
+    tokenId: number;
     user: number;
     pack: number;
 }
