@@ -11,7 +11,7 @@ import { abi } from '../../../../hardhat/artifacts/contracts/NFTFactory.sol/NFTF
 import { useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
 import { INFT } from '@/models/nft.model';
 
-const NFT_FACTORY_ADDRESS = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'; // Remplacez par l'adresse de votre contrat déployé
+const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Remplacez par l'adresse de votre contrat déployé
 
 const CollectionsPage = () => {
   const router = useRouter();
@@ -57,15 +57,19 @@ const CollectionsPage = () => {
     if (price) {
       // Here, you would call the sell function via wagmi
       const sellNFT = async (price: string, collection: string, tokenId: number) => {
+        console.log(Number(price), collection, tokenId)
         try {
+            console.log('1')
             writeContract({
               address: NFT_FACTORY_ADDRESS,
               abi,
               functionName: 'sell',
               args: [Number(price), collection, tokenId],
             });
+            console.log(isConfirmed)
 
             if (isConfirmed) {
+                console.log('2')
                 const updateData: Partial<INFT> = {
                     price: Number(price),
                     listed: true
@@ -83,6 +87,8 @@ const CollectionsPage = () => {
       };
 
       await sellNFT(price, nft.pack.address, nft.tokenId);
+    } else {
+        ErrorService.errorMessage('Sell', 'No price');
     }
   };
 
