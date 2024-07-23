@@ -12,7 +12,6 @@ function Page() {
       <div className="background-container">
         <div className="overlay"></div>
         <div className="content">
-          <GenerateImageButton/>
         </div>
       </div>
       <div className="card-list-container">
