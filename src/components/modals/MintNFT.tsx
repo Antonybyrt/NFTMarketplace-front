@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { type BaseError, useWaitForTransactionReceipt, useWriteContract, useWatchContractEvent } from 'wagmi';
@@ -8,9 +9,9 @@ import { NFTService } from '@/service/nft.service';
 import { INFT } from '@/models/nft.model';
 import { ServiceErrorCode } from '@/service/service.result';
 import { MetaMaskService } from '@/service/metaMask.service';
+import GenerateImageButton from '../generateNFT/GenerateImageButton';
 
-const NFT_FACTORY_ADDRESS = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'; // Remplacez par l'adresse de votre contrat déployé
-//const NFT_ADDRESS = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
+const NFT_FACTORY_ADDRESS = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'; // Remplacez par l'adresse de votre contrat déployé
 
 export function MintNFTModal({ show, handleClose, collection, user }: any) {
   const { data: hash, isPending, error, writeContract } = useWriteContract();
@@ -18,6 +19,7 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
 
   const [formData, setFormData] = useState<{ name: string, symbol: string, tokenURI: string } | null>(null);
   const [createdNFT, setCreatedNFT] = useState(false);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   useWatchContractEvent({
     address: NFT_FACTORY_ADDRESS,
@@ -33,7 +35,7 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
             console.log('new :', tokenId);
 
             saveNFTToWeb2(tokenId);
-            MetaMaskService.addNFTToMetaMask(NFT_FACTORY_ADDRESS, tokenId);
+            //MetaMaskService.addNFTToMetaMask(NFT_FACTORY_ADDRESS, tokenId);
             setCreatedNFT(false);
         });
       }
@@ -45,7 +47,7 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
     const formData = new FormData(e.target as HTMLFormElement);
     const name = formData.get('name') as string;
     const symbol = formData.get('symbol') as string;
-    const tokenURI = formData.get('tokenURI') as string;
+    const tokenURI = imageUrl ? imageUrl : '';
     setFormData({ name, symbol, tokenURI });
     writeContract({
       address: NFT_FACTORY_ADDRESS,
@@ -53,7 +55,7 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
       functionName: 'addNFTToCollection',
       args: [collection.address, String(name), String(symbol), String(tokenURI)],
     });
-
+    //saveNFTToWeb2(1);
     if(isConfirmed) {
       setCreatedNFT(true);
     }
@@ -72,7 +74,8 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
         tokenId: tokenId,
         user: user,
         pack: collection,
-        tokenURI : formData.tokenURI
+        listed: false,
+        tokenURI: formData.tokenURI
       }
 
       try {
@@ -94,6 +97,7 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
         <Modal.Title>Mint NFT for {collection?.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body className="bg-dark">
+      <GenerateImageButton setImageUrl={setImageUrl} />
         <form onSubmit={submit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">NFT Name</label>
@@ -102,10 +106,6 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
           <div className="mb-3">
             <label htmlFor="symbol" className="form-label">NFT Symbol</label>
             <input name="symbol" id="symbol" className="form-control bg-dark text-white" placeholder="MNFT" required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label">NFT Name</label>
-            <input name="name" id="name" className="form-control bg-dark text-white" placeholder="MyNFT" required />
           </div>
           <button
             disabled={isPending}

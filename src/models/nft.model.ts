@@ -5,6 +5,7 @@ export interface INFT {
     tokenId: number;
     user: number;
     pack: number;
+    listed: boolean;
     tokenURI: string
 }
 
