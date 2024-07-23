@@ -12,7 +12,7 @@ import { abi } from '../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory
 import { CollectionService } from '../service/collection.service';
 import { ErrorService } from '@/service/error.service';
 
-const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Remplacez par l'adresse de votre contrat déployé
+const NFT_FACTORY_ADDRESS = '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9'; // Remplacez par l'adresse de votre contrat déployé
 
 interface CreateCollectionProps {
   user: IUserId | undefined;

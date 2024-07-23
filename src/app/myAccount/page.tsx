@@ -62,6 +62,9 @@ function MyAccountPage() {
                         <button className="btn btn-link text-light" onClick={() => router.push('/myAccount/MyCollections')}>
                             Mes collections
                         </button>
+                        <button className="btn btn-link text-light" onClick={() => router.push('/myAccount/myNFTs')}>
+                            Mes NFTs
+                        </button>
                     </div>
                 </div>
             </div>
