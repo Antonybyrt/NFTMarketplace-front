@@ -36,4 +36,8 @@ contract NFT is ERC721 {
     function transferFrom(address from, address to, uint256 tokenId) public override {
         super.transferFrom(from, to, tokenId);
     }
+
+    function approve(address to, uint256 tokenId) public override {
+        super.approve(to, tokenId);
+    }
 }

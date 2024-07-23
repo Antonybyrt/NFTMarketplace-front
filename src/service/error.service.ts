@@ -19,4 +19,20 @@ export class ErrorService {
         });
     }
 
+    static async promptPrice(title: string, placeholder: string): Promise<string | null> {
+        const { value: price } = await Swal.fire({
+          title: title,
+          input: 'text',
+          inputPlaceholder: placeholder,
+          showCancelButton: true,
+          inputValidator: (value) => {
+            if (!value) {
+              return 'You need to enter a price!';
+            }
+          },
+        });
+    
+        return price;
+      }
+
 }

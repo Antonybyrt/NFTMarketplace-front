@@ -34,7 +34,6 @@ contract NFTFactory {
     constructor() {}
 
     function createCollection(string memory name, string memory symbol) public {
-        emit Debug("createCollection started");
         NFT newCollection = new NFT(name, symbol);
         collections.push(Collection({
             collectionAddress: address(newCollection),
@@ -43,7 +42,6 @@ contract NFTFactory {
             owner: msg.sender
         }));
         emit CollectionCreated(address(newCollection), name, symbol);
-        emit Debug("createCollection finished");
     }
 
     function addNFTToCollection(address collectionAddress, string memory name, string memory symbol) public {
@@ -81,9 +79,12 @@ contract NFTFactory {
     }
 
     function sell(uint256 price, address collection, uint256 tokenId) public {
+        emit Debug("Debut de fonction");
         if(getAlreadyListed(collection) == true) {
+            emit Debug("Deja liste");
             revert ALREADY_LISTED(collection);
         }
+        emit Debug("Paliste");
         market[idMarket] = Listed(price, msg.sender, collection, block.timestamp, false);
         idMarket++;
 
