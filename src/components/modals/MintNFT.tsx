@@ -11,7 +11,7 @@ import { ServiceErrorCode } from '@/service/service.result';
 import { MetaMaskService } from '@/service/metaMask.service';
 import GenerateImageButton from '../generateNFT/GenerateImageButton';
 
-const NFT_FACTORY_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Remplacez par l'adresse de votre contrat déployé
+const NFT_FACTORY_ADDRESS = '0xA60CD45c4A0fb2359811173dB11459b9110200a0'; // Remplacez par l'adresse de votre contrat déployé
 
 export function MintNFTModal({ show, handleClose, collection, user }: any) {
   const { data: hash, isPending, error, writeContract } = useWriteContract();
@@ -74,8 +74,7 @@ export function MintNFTModal({ show, handleClose, collection, user }: any) {
         tokenId: tokenId,
         user: user,
         pack: collection,
-        listed: false,
-        tokenURI: formData.tokenURI
+        listed: false
       }
 
       try {

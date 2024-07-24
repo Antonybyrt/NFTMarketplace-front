@@ -7,6 +7,7 @@ import { ServiceErrorCode } from '../../../service/service.result';
 import CollectionsTable from '../../../components/CollectionsTable';
 import { IUserId } from '@/models/user.model';
 import { MintNFTModal } from '@/components/modals/MintNFT';
+import { ErrorService } from '@/service/error.service';
 
 const CollectionsPage = () => {
   const router = useRouter();
@@ -21,7 +22,7 @@ const CollectionsPage = () => {
     const fetchUser = async () => {
       if (!token) {
         setIsLoading(false);
-        alert('Please, log in before accessing your information');
+        ErrorService.errorMessage('Account', 'Please log in before accessing to informations')
         router.push('../');
         return;
       }

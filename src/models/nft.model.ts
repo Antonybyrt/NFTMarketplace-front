@@ -5,8 +5,8 @@ export interface INFT {
     tokenId: number;
     user: number;
     pack: number;
+    price?: number;
     listed: boolean;
-    tokenURI: string
 }
 
 export type INFTId = INFT & { _id: string };
