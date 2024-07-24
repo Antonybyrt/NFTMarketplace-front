@@ -10,9 +10,10 @@ import { ErrorService } from '@/service/error.service';
 import { abi } from '../../../../hardhat/artifacts/contracts/NFTFactory.sol/NFTFactory.json';
 import { useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
 import { INFT } from '@/models/nft.model';
+import { useWriteContracts } from 'wagmi/experimental'
 
-const NFT_FACTORY_ADDRESS = '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9'; // Remplacez par l'adresse de votre contrat déployé
-const NFT_ADDRESS = '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707';
+const NFT_FACTORY_ADDRESS = '0xA60CD45c4A0fb2359811173dB11459b9110200a0'; // Remplacez par l'adresse de votre contrat déployé
+const NFT_ADDRESS = '0x880A57034A6f3B9D4e66C93541F7c4B2b0AAde3a';
 
 const CollectionsPage = () => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const CollectionsPage = () => {
   const token = localStorage.getItem("token");
   const [selectedNFT, setSelectedNFT] = useState(null);
 
-  const { data: hash, isPending, error, writeContract } = useWriteContract();
+  const { data: hash, isPending, error, writeContracts } = useWriteContracts();
   const { isLoading: isConfirming, isSuccess: isConfirmed} = useWaitForTransactionReceipt({ hash });
 
   useEffect(() => {
@@ -61,11 +62,28 @@ const CollectionsPage = () => {
         console.log(Number(price), collection, tokenId)
         try {
             console.log('1')
-            writeContract({
-              address: NFT_FACTORY_ADDRESS,
-              abi,
-              functionName: 'sell',
-              args: [Number(price), collection, tokenId],
+            writeContracts({
+              contracts: [
+                {
+                  address: NFT_FACTORY_ADDRESS,
+                  abi,
+                  functionName: 'approve',
+                  args: [
+                    NFT_FACTORY_ADDRESS, 
+                    tokenId
+                  ],
+                },
+                {
+                  address: NFT_FACTORY_ADDRESS,
+                  abi,
+                  functionName: 'sell',
+                  args: [
+                    Number(price), 
+                    collection, 
+                    tokenId,
+                  ],
+                },
+              ],
             });
             console.log(isConfirmed)
 
