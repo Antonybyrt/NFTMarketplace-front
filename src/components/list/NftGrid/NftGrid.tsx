@@ -12,7 +12,7 @@ const NftGrid: React.FC<NftGridProps> = ({ nfts }) => {
     <div className="nft-grid">
       {nfts.map((nft) => (
         <div key={nft.id} className="nft-item">
-          <img className="nft-image" src={nft.image || defaultImage} alt={nft.name} />
+          <img className="nft-image" src={nft.tokenURI || defaultImage} alt={nft.name} />
           <div className="nft-details">
             <h2 className="nft-title">{nft.name}</h2>
             {nft.description && <p className="nft-description">{nft.description}</p>}
