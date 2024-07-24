@@ -14,6 +14,7 @@ import { ErrorService } from '@/service/error.service';
 
 const NFT_FACTORY_ADDRESS = '0xA60CD45c4A0fb2359811173dB11459b9110200a0'; // Remplacez par l'adresse de votre contrat déployé
 
+
 interface CreateCollectionProps {
   user: IUserId | undefined;
 }
