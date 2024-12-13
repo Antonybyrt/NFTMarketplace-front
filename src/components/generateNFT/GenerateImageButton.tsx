@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './GenerateImageButton.css';
 
-const GenerateImageButton: React.FC = () => {
+interface GenerateImageButtonProps {
+    setImageUrl: (url: string) => void;
+}
+
+const GenerateImageButton: React.FC<GenerateImageButtonProps> = ({ setImageUrl }) => {
     const [nftName, setNftName] = useState('');
     const [imageFile, setImageFile] = useState<File | null>(null);
-    const [imageUrl, setImageUrl] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -27,8 +30,9 @@ const GenerateImageButton: React.FC = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            setImageUrl(response.data.imageUrl);
-            console.log('Image générée avec succès:', response.data.imageUrl);
+            const imageUrl = response.data.imageUrl;
+            setImageUrl(imageUrl);
+            console.log('Image générée avec succès:', imageUrl);
         } catch (error) {
             console.error('Erreur lors de la génération de l\'image:', error);
             setError('Erreur lors de la génération de l\'image');
@@ -57,23 +61,6 @@ const GenerateImageButton: React.FC = () => {
                 {loading ? 'Generating...' : 'Generate Image'}
             </button>
             {error && <p className="error-message">{error}</p>}
-            {imageUrl && (
-                <div className="image-container">
-                    <input
-                        type="text"
-                        className="image-url"
-                        value={imageUrl}
-                        readOnly
-                    />
-                    <a href={imageUrl} target="_blank" rel="noopener noreferrer">
-                        <img
-                            src={imageUrl}
-                            alt="Generated NFT"
-                            className="image-preview"
-                        />
-                    </a>
-                </div>
-            )}
         </div>
     );
 };

@@ -1,8 +1,0 @@
-console.log(block);
-const block = await ethers.provider.getBlock(1);
-console.log("Dernier bloc:", block);
-const block = await ethers.provider.getBlock(latestBlockNumber);
-const latestBlockNumber = await ethers.provider.getBlockNumber();
-console.log("Dernier numéro de bloc:", latestBlockNumber);
-const latestBlockNumber = await ethers.provider.getBlockNumber();
-ethers

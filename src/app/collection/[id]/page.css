@@ -1,0 +1,16 @@
+/* src/app/collection/page.css */
+.collection-details {
+    padding: 40px 20px; /* Ajout de plus de padding pour descendre le texte */
+    text-align: left; /* Alignement à gauche */
+    color: white; /* Couleur du texte en blanc */
+  }
+  
+  .collection-details .description {
+    color: white; /* Couleur de texte en blanc */
+    margin-bottom: 10px; /* Espace entre la description et la blockchain */
+  }
+  
+  .collection-details .blockchain {
+    color: white; /* Couleur de texte en blanc */
+  }
+  

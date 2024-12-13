@@ -1,0 +1,62 @@
+/* src/components/Banner/Banner.css */
+.banner-container {
+  position: relative;
+  height: 300px;
+  background-image: url('/image/Space.jpg'); /* Utilisation de votre image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.nft-image-container {
+  margin-right: 20px;
+}
+
+.nft-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.text-content {
+  text-align: left;
+}
+
+.banner-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.creator-name {
+  font-size: 1.2rem;
+}
+
+.gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Ajustez cette valeur pour couvrir la partie souhaitée de la bannière */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #181818); /* Ajustez les couleurs selon vos besoins */
+  pointer-events: none; /* Assurez-vous que le dégradé n'interfère pas avec les interactions de la page */
+}
