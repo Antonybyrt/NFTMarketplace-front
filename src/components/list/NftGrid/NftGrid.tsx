@@ -1,4 +1,3 @@
-// src/components/NftGrid/NftGrid.tsx
 import React from 'react';
 import './NftGrid.css';
 import { Nft } from '../../../models/nft.model';

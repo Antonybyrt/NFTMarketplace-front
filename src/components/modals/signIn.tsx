@@ -6,6 +6,7 @@ import { ILogin } from '@/models/login.model';
 import { AuthService } from '@/service/auth.service';
 import { ServiceErrorCode } from '@/service/service.result';
 import * as bootstrap from 'bootstrap';
+import { ErrorService } from '@/service/error.service';
 
 const SignInModal = () => {
     const { connector } = getAccount(config);
@@ -14,8 +15,6 @@ const SignInModal = () => {
         login: '',
         signature: ''
     });
-    const [errorMessage, setErrorMessage] = useState<string>();
-    const [successMessage, setSuccessMessage] = useState<string>();
 
     async function handleSignMessage(event: React.MouseEvent<HTMLButtonElement>) {
       event.preventDefault();
@@ -48,19 +47,18 @@ const SignInModal = () => {
       const res = await AuthService.login(log);
       if (res.errorCode === ServiceErrorCode.success && res.result) {
           localStorage.setItem("token", res.result.token);
-          setErrorMessage('');
 
           const modal = document.getElementById('signInModal');
           if (modal) {
               const modalInstance = bootstrap.Modal.getInstance(modal);
               modalInstance?.dispose();
-              setSuccessMessage('Authenticated successfully');
+              ErrorService.successMessage('Authentification','Authenticated successfully');
           }
       } else {
           if (res.errorCode === ServiceErrorCode.notFound) {
-              setErrorMessage('Invalid credentials');
+              ErrorService.errorMessage('Authentification', 'Invalid credentials')
           } else {
-              setErrorMessage('Internal server error');
+              ErrorService.errorMessage('Authentification', 'Internal servor error')
           }
       }
     };
@@ -82,8 +80,6 @@ const SignInModal = () => {
                           <button type="button" onClick={handleSignMessage} className="btn btn-outline-light">Sign Message</button>
                           <button type="submit" className="btn btn-outline-light">Sign in</button>
                       </form>
-                      {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
-                      {successMessage && <div className="alert alert-success mt-3">{successMessage}</div>}
                   </div>
               </div>
           </div>

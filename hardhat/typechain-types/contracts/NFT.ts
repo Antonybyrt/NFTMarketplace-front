@@ -45,7 +45,11 @@ export interface NFTInterface extends Interface {
   ): FunctionFragment;
 
   getEvent(
-    nameOrSignatureOrTopic: "Approval" | "ApprovalForAll" | "Transfer"
+    nameOrSignatureOrTopic:
+      | "Approval"
+      | "ApprovalForAll"
+      | "NFTAdded"
+      | "Transfer"
   ): EventFragment;
 
   encodeFunctionData(
@@ -67,7 +71,7 @@ export interface NFTInterface extends Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "mint",
-    values: [AddressLike, string, string]
+    values: [AddressLike, string, string, string]
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "nfts", values: [BigNumberish]): string;
@@ -180,6 +184,31 @@ export namespace ApprovalForAllEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
+export namespace NFTAddedEvent {
+  export type InputTuple = [
+    tokenId: BigNumberish,
+    name: string,
+    symbol: string,
+    tokenURI: string
+  ];
+  export type OutputTuple = [
+    tokenId: bigint,
+    name: string,
+    symbol: string,
+    tokenURI: string
+  ];
+  export interface OutputObject {
+    tokenId: bigint;
+    name: string;
+    symbol: string;
+    tokenURI: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
 export namespace TransferEvent {
   export type InputTuple = [
     from: AddressLike,
@@ -264,7 +293,7 @@ export interface NFT extends BaseContract {
   >;
 
   mint: TypedContractMethod<
-    [to: AddressLike, name: string, symbol: string],
+    [to: AddressLike, name: string, symbol: string, tokenURI: string],
     [void],
     "nonpayable"
   >;
@@ -273,7 +302,14 @@ export interface NFT extends BaseContract {
 
   nfts: TypedContractMethod<
     [arg0: BigNumberish],
-    [[string, string] & { name: string; symbol: string }],
+    [
+      [string, string, string, bigint] & {
+        name: string;
+        symbol: string;
+        tokenURI: string;
+        tokenId: bigint;
+      }
+    ],
     "view"
   >;
 
@@ -352,7 +388,7 @@ export interface NFT extends BaseContract {
   getFunction(
     nameOrSignature: "mint"
   ): TypedContractMethod<
-    [to: AddressLike, name: string, symbol: string],
+    [to: AddressLike, name: string, symbol: string, tokenURI: string],
     [void],
     "nonpayable"
   >;
@@ -363,7 +399,14 @@ export interface NFT extends BaseContract {
     nameOrSignature: "nfts"
   ): TypedContractMethod<
     [arg0: BigNumberish],
-    [[string, string] & { name: string; symbol: string }],
+    [
+      [string, string, string, bigint] & {
+        name: string;
+        symbol: string;
+        tokenURI: string;
+        tokenId: bigint;
+      }
+    ],
     "view"
   >;
   getFunction(
@@ -427,6 +470,13 @@ export interface NFT extends BaseContract {
     ApprovalForAllEvent.OutputObject
   >;
   getEvent(
+    key: "NFTAdded"
+  ): TypedContractEvent<
+    NFTAddedEvent.InputTuple,
+    NFTAddedEvent.OutputTuple,
+    NFTAddedEvent.OutputObject
+  >;
+  getEvent(
     key: "Transfer"
   ): TypedContractEvent<
     TransferEvent.InputTuple,
@@ -455,6 +505,17 @@ export interface NFT extends BaseContract {
       ApprovalForAllEvent.InputTuple,
       ApprovalForAllEvent.OutputTuple,
       ApprovalForAllEvent.OutputObject
+    >;
+
+    "NFTAdded(uint256,string,string,string)": TypedContractEvent<
+      NFTAddedEvent.InputTuple,
+      NFTAddedEvent.OutputTuple,
+      NFTAddedEvent.OutputObject
+    >;
+    NFTAdded: TypedContractEvent<
+      NFTAddedEvent.InputTuple,
+      NFTAddedEvent.OutputTuple,
+      NFTAddedEvent.OutputObject
     >;
 
     "Transfer(address,address,uint256)": TypedContractEvent<
